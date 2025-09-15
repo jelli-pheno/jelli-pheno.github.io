@@ -1,0 +1,1174 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for jelli.">
+      
+      
+        <meta name="author" content="Aleks Smolkovic, Peter Stangl">
+      
+      
+      
+        <link rel="prev" href="../jax_helpers/">
+      
+      
+        <link rel="next" href="../probability/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>par_helpers - jelli - JAX-based EFT likelihoods</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.e53b48f4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jelliutilspar_helpers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="jelli - JAX-based EFT likelihoods" class="md-header__button md-logo" aria-label="jelli - JAX-based EFT likelihoods" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            jelli - JAX-based EFT likelihoods
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              par_helpers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="jelli - JAX-based EFT likelihoods" class="md-nav__button md-logo" aria-label="jelli - JAX-based EFT likelihoods" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    jelli - JAX-based EFT likelihoods
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/custom_basis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    custom_basis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/experimental_correlations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    experimental_correlations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/get_jitted_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    get_jitted_functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/global_likelihood/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    global_likelihood
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/global_likelihood_point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    global_likelihood_point
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    measurement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/observable_sector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    observable_sector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/theory_correlations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    theory_correlations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    utils
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            utils
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_io/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    data_io
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    distributions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jax_helpers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    jax_helpers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    par_helpers
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    par_helpers
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jelli.utils.par_helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      par_helpers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jelli.utils.par_helpers.get_par_monomial_indices" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_par_monomial_indices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jelli.utils.par_helpers.keys_array" class="md-nav__link">
+    <span class="md-ellipsis">
+      keys_array
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jelli.utils.par_helpers.keys_isin" class="md-nav__link">
+    <span class="md-ellipsis">
+      keys_isin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jelli.utils.par_helpers.keys_product" class="md-nav__link">
+    <span class="md-ellipsis">
+      keys_product
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../probability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    probability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jelli.utils.par_helpers" class="md-nav__link">
+    <span class="md-ellipsis">
+      par_helpers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jelli.utils.par_helpers.get_par_monomial_indices" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_par_monomial_indices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jelli.utils.par_helpers.keys_array" class="md-nav__link">
+    <span class="md-ellipsis">
+      keys_array
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jelli.utils.par_helpers.keys_isin" class="md-nav__link">
+    <span class="md-ellipsis">
+      keys_isin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jelli.utils.par_helpers.keys_product" class="md-nav__link">
+    <span class="md-ellipsis">
+      keys_product
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="jelliutilspar_helpers">jelli.utils.par_helpers</h1>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="jelli.utils.par_helpers"></a>
+    <div class="doc doc-contents first">
+
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="jelli.utils.par_helpers.get_par_monomial_indices" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_par_monomial_indices</span><span class="p">(</span><span class="n">keys_pars</span><span class="p">,</span> <span class="n">keys_coeff</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Computes sorted indices mapping linear parameters
+to bilinear ones that exist in the provided coefficient list.</p>
+<p>Args:
+    keys_pars (list): List of linear parameter keys, each element is a tuple (w, c),
+                         where w is the parameter name and c is 'R' for real or 'I' for imaginary.
+    keys_coeff (list): List of bilinear coefficient keys. Each element is a tuple (w1, w2, c),
+                           where w1 and w2 are the parameter names and c 'RR', 'RI', 'IR', or 'II',
+                           denoting all possible interferences.
+Returns:
+    (np.ndarray): Sorted indices of bilinear coefficients that match <code>keys_coeff</code>.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>jelli/utils/par_helpers.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_par_monomial_indices</span><span class="p">(</span><span class="n">keys_pars</span><span class="p">,</span> <span class="n">keys_coeff</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes sorted indices mapping linear parameters</span>
+<span class="sd">    to bilinear ones that exist in the provided coefficient list.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        keys_pars (list): List of linear parameter keys, each element is a tuple (w, c),</span>
+<span class="sd">                             where w is the parameter name and c is &#39;R&#39; for real or &#39;I&#39; for imaginary.</span>
+<span class="sd">        keys_coeff (list): List of bilinear coefficient keys. Each element is a tuple (w1, w2, c),</span>
+<span class="sd">                               where w1 and w2 are the parameter names and c &#39;RR&#39;, &#39;RI&#39;, &#39;IR&#39;, or &#39;II&#39;,</span>
+<span class="sd">                               denoting all possible interferences.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        (np.ndarray): Sorted indices of bilinear coefficients that match `keys_coeff`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Generate all possible bilinear combinations of keys_pars</span>
+    <span class="n">keys_pars_bilinears</span> <span class="o">=</span> <span class="n">keys_array</span><span class="p">(</span><span class="n">keys_product</span><span class="p">(</span>
+        <span class="n">keys_pars</span><span class="p">,</span> <span class="n">keys_pars</span>
+    <span class="p">))</span>
+    <span class="n">bilin_bools</span> <span class="o">=</span> <span class="n">keys_isin</span><span class="p">(</span><span class="n">keys_pars_bilinears</span><span class="p">,</span> <span class="n">keys_coeff</span><span class="p">)</span>
+    <span class="c1"># Take elements of keys_pars_bilinears that exist in keys_coeff and obtain indices that sort them</span>
+    <span class="n">sort_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">keys_pars_bilinears</span><span class="p">[</span><span class="n">bilin_bools</span><span class="p">])</span>
+    <span class="n">bilin_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">bilin_bools</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">bilin_sort_indices</span> <span class="o">=</span> <span class="n">bilin_indices</span><span class="p">[</span><span class="n">sort_indices</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">bilin_sort_indices</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="jelli.utils.par_helpers.keys_array" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">keys_array</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Converts a list of tuples into a numpy array.</p>
+<p>Args:
+    keys (list): A list containing tuples.</p>
+<p>Returns:
+    (np.ndarray): A numpy array with dtype=tuple containing the provided keys.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>jelli/utils/par_helpers.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">keys_array</span><span class="p">(</span><span class="n">keys</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a list of tuples into a numpy array.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        keys (list): A list containing tuples.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (np.ndarray): A numpy array with dtype=tuple containing the provided keys.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">tuple</span><span class="p">)</span>
+    <span class="n">array</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">keys</span>
+    <span class="k">return</span> <span class="n">array</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="jelli.utils.par_helpers.keys_isin" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">keys_isin</span><span class="p">(</span><span class="n">keys_a</span><span class="p">,</span> <span class="n">keys_b</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Checks if elements in <code>keys_a</code> exist in <code>keys_b</code>.</p>
+<p>Args:
+    keys_a (list): List of keys to check.
+    keys_b (list): List of reference keys.</p>
+<p>Returns:
+    (np.ndarray): Boolean numpy array indicating presence of each key in <code>keys_a</code> within <code>keys_b</code>.</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>jelli/utils/par_helpers.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">keys_isin</span><span class="p">(</span><span class="n">keys_a</span><span class="p">,</span> <span class="n">keys_b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if elements in `keys_a` exist in `keys_b`.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        keys_a (list): List of keys to check.</span>
+<span class="sd">        keys_b (list): List of reference keys.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (np.ndarray): Boolean numpy array indicating presence of each key in `keys_a` within `keys_b`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">set_b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">keys_b</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">item</span> <span class="ow">in</span> <span class="n">set_b</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">keys_a</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">res</span> <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="jelli.utils.par_helpers.keys_product" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">keys_product</span><span class="p">(</span><span class="n">keys_a</span><span class="p">,</span> <span class="n">keys_b</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Computes the Cartesian product of two sets of keys, producing bilinear combinations.</p>
+<p>Args:
+    keys_a (list): A list where each element is a tuple of the form (w, c).
+    keys_b (list): Another list with elements of the form (w, c).</p>
+<p>Returns:
+    (list): A list of bilinear combinations in the form (w_a, w_b, c_a + c_b).</p>
+
+
+            <details class="quote">
+              <summary>Source code in <code>jelli/utils/par_helpers.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">keys_product</span><span class="p">(</span><span class="n">keys_a</span><span class="p">,</span> <span class="n">keys_b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the Cartesian product of two sets of keys, producing bilinear combinations.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        keys_a (list): A list where each element is a tuple of the form (w, c).</span>
+<span class="sd">        keys_b (list): Another list with elements of the form (w, c).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        (list): A list of bilinear combinations in the form (w_a, w_b, c_a + c_b).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys_a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="p">(</span><span class="n">w_a</span><span class="p">,</span> <span class="n">w_b</span><span class="p">,</span> <span class="n">c_a</span><span class="o">+</span><span class="n">c_b</span><span class="p">)</span>
+            <span class="k">for</span> <span class="p">((</span><span class="n">w_a</span><span class="p">,</span> <span class="n">c_a</span><span class="p">),</span> <span class="p">(</span><span class="n">w_b</span><span class="p">,</span> <span class="n">c_b</span><span class="p">))</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">keys_a</span><span class="p">,</span> <span class="n">keys_b</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;keys must be of the form (w,c)&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.sections", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
