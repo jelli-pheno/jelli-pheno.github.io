@@ -1062,18 +1062,28 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>List of constraints on observables. Each constraint is a dictionary with the following keys:
-- type : str
-    Type of the distribution. Can be 'NormalDistribution', 'HalfNormalDistribution', 'GammaDistributionPositive', 'NumericalDistribution', 'MultivariateNormalDistribution'.
-- observables : list containing str
-    List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a $q^2$ value or $q^2$ range).
-- parameters : dict
-    Parameters of the distribution. The keys depend on the type of the distribution as follows:
-    - NormalDistribution : 'central_value' (float), 'standard_deviation' (float)
-    - HalfNormalDistribution : 'central_value' (float), 'standard_deviation' (float)
-    - GammaDistributionPositive : 'a' (float), 'loc' (float), 'scale' (float)
-    - NumericalDistribution : 'x' (list of float), 'y' (list of float)
-    - MultivariateNormalDistribution : 'central_value' (list of float), 'covariance' (list of list of float)</p>
+                <p>List of constraints on observables. Each constraint is a dictionary with the following keys:</p>
+<ul>
+<li>
+<p><code>type : str</code>
+    Type of the distribution. Can be <code>NormalDistribution</code>, <code>HalfNormalDistribution</code>, <code>GammaDistributionPositive</code>, <code>NumericalDistribution</code>, <code>MultivariateNormalDistribution</code>.</p>
+</li>
+<li>
+<p><code>observables : list containing str</code>
+    List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a <span class="arithmatex">\(q^2\)</span> value or <span class="arithmatex">\(q^2\)</span> range).</p>
+</li>
+<li>
+<p><code>parameters : dict</code>
+    Parameters of the distribution. The keys depend on the type of the distribution as follows:</p>
+<ul>
+<li><code>NormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
+<li><code>HalfNormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
+<li><code>GammaDistributionPositive</code>: <code>a</code> (float), <code>loc</code> (float), <code>scale</code> (float)</li>
+<li><code>NumericalDistribution</code>: <code>x</code> (list of float), <code>y</code> (list of float)</li>
+<li><code>MultivariateNormalDistribution</code>: <code>central_value</code> (list of float), <code>covariance</code> (list of list of float)</li>
+</ul>
+</li>
+</ul>
               </div>
             </td>
             <td>
@@ -1112,18 +1122,28 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>List of constraints on observables. Each constraint is a dictionary with the following keys:
-- observables : list containing str
-    List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a $q^2$ value or $q^2$ range).
-- distribution_type : str
-    Type of the distribution. Can be 'NormalDistribution', 'HalfNormalDistribution', 'GammaDistributionPositive', 'NumericalDistribution', 'MultivariateNormalDistribution'.
-- parameters : dict
-    Parameters of the distribution. The keys depend on the type of the distribution as follows:
-    - NormalDistribution : 'central_value' (float), 'standard_deviation' (float)
-    - HalfNormalDistribution : 'central_value' (float), 'standard_deviation' (float)
-    - GammaDistributionPositive : 'a' (float), 'loc' (float), 'scale' (float)
-    - NumericalDistribution : 'x' (list of float), 'y' (list of float)
-    - MultivariateNormalDistribution : 'central_value' (list of float), 'covariance' (list of list of float)</p>
+                <p>List of constraints on observables. Each constraint is a dictionary with the following keys:</p>
+<ul>
+<li>
+<p><code>observables : list containing str</code>
+    List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a <span class="arithmatex">\(q^2\)</span> value or <span class="arithmatex">\(q^2\)</span> range).</p>
+</li>
+<li>
+<p><code>distribution_type : str</code>
+    Type of the distribution. Can be <code>NormalDistribution</code>, <code>HalfNormalDistribution</code>, <code>GammaDistributionPositive</code>, <code>NumericalDistribution</code>, <code>MultivariateNormalDistribution</code>.</p>
+</li>
+<li>
+<p><code>parameters : dict</code>
+    Parameters of the distribution. The keys depend on the type of the distribution as follows:</p>
+<ul>
+<li><code>NormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
+<li><code>HalfNormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
+<li><code>GammaDistributionPositive</code>: <code>a</code> (float), <code>loc</code> (float), <code>scale</code> (float)</li>
+<li><code>NumericalDistribution</code>: <code>x</code> (list of float), <code>y</code> (list of float)</li>
+<li><code>MultivariateNormalDistribution</code>: <code>central_value</code> (list of float), <code>covariance</code> (list of list of float)</li>
+</ul>
+</li>
+</ul>
               </div>
             </td>
           </tr>
@@ -1895,7 +1915,16 @@
 <span class="normal">612</span>
 <span class="normal">613</span>
 <span class="normal">614</span>
-<span class="normal">615</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Measurement</span><span class="p">:</span>
+<span class="normal">615</span>
+<span class="normal">616</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Measurement</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Class to store measurements and constraints on observables.</span>
 
@@ -1905,17 +1934,20 @@
 <span class="sd">        Name of the measurement.</span>
 <span class="sd">    constraints : list of dict</span>
 <span class="sd">        List of constraints on observables. Each constraint is a dictionary with the following keys:</span>
-<span class="sd">        - type : str</span>
-<span class="sd">            Type of the distribution. Can be &#39;NormalDistribution&#39;, &#39;HalfNormalDistribution&#39;, &#39;GammaDistributionPositive&#39;, &#39;NumericalDistribution&#39;, &#39;MultivariateNormalDistribution&#39;.</span>
-<span class="sd">        - observables : list containing str</span>
+
+<span class="sd">          - `type : str`</span>
+<span class="sd">            Type of the distribution. Can be `NormalDistribution`, `HalfNormalDistribution`, `GammaDistributionPositive`, `NumericalDistribution`, `MultivariateNormalDistribution`.</span>
+
+<span class="sd">          - `observables : list containing str`</span>
 <span class="sd">            List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a $q^2$ value or $q^2$ range).</span>
-<span class="sd">        - parameters : dict</span>
+
+<span class="sd">          - `parameters : dict`</span>
 <span class="sd">            Parameters of the distribution. The keys depend on the type of the distribution as follows:</span>
-<span class="sd">            - NormalDistribution : &#39;central_value&#39; (float), &#39;standard_deviation&#39; (float)</span>
-<span class="sd">            - HalfNormalDistribution : &#39;central_value&#39; (float), &#39;standard_deviation&#39; (float)</span>
-<span class="sd">            - GammaDistributionPositive : &#39;a&#39; (float), &#39;loc&#39; (float), &#39;scale&#39; (float)</span>
-<span class="sd">            - NumericalDistribution : &#39;x&#39; (list of float), &#39;y&#39; (list of float)</span>
-<span class="sd">            - MultivariateNormalDistribution : &#39;central_value&#39; (list of float), &#39;covariance&#39; (list of list of float)</span>
+<span class="sd">              - `NormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
+<span class="sd">              - `HalfNormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
+<span class="sd">              - `GammaDistributionPositive`: `a` (float), `loc` (float), `scale` (float)</span>
+<span class="sd">              - `NumericalDistribution`: `x` (list of float), `y` (list of float)</span>
+<span class="sd">              - `MultivariateNormalDistribution`: `central_value` (list of float), `covariance` (list of list of float)</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -1923,17 +1955,20 @@
 <span class="sd">        Name of the measurement.</span>
 <span class="sd">    constraints : list of dict</span>
 <span class="sd">        List of constraints on observables. Each constraint is a dictionary with the following keys:</span>
-<span class="sd">        - observables : list containing str</span>
+
+<span class="sd">          - `observables : list containing str`</span>
 <span class="sd">            List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a $q^2$ value or $q^2$ range).</span>
-<span class="sd">        - distribution_type : str</span>
-<span class="sd">            Type of the distribution. Can be &#39;NormalDistribution&#39;, &#39;HalfNormalDistribution&#39;, &#39;GammaDistributionPositive&#39;, &#39;NumericalDistribution&#39;, &#39;MultivariateNormalDistribution&#39;.</span>
-<span class="sd">        - parameters : dict</span>
+
+<span class="sd">          - `distribution_type : str`</span>
+<span class="sd">            Type of the distribution. Can be `NormalDistribution`, `HalfNormalDistribution`, `GammaDistributionPositive`, `NumericalDistribution`, `MultivariateNormalDistribution`.</span>
+
+<span class="sd">          - `parameters : dict`</span>
 <span class="sd">            Parameters of the distribution. The keys depend on the type of the distribution as follows:</span>
-<span class="sd">            - NormalDistribution : &#39;central_value&#39; (float), &#39;standard_deviation&#39; (float)</span>
-<span class="sd">            - HalfNormalDistribution : &#39;central_value&#39; (float), &#39;standard_deviation&#39; (float)</span>
-<span class="sd">            - GammaDistributionPositive : &#39;a&#39; (float), &#39;loc&#39; (float), &#39;scale&#39; (float)</span>
-<span class="sd">            - NumericalDistribution : &#39;x&#39; (list of float), &#39;y&#39; (list of float)</span>
-<span class="sd">            - MultivariateNormalDistribution : &#39;central_value&#39; (list of float), &#39;covariance&#39; (list of list of float)</span>
+<span class="sd">              - `NormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
+<span class="sd">              - `HalfNormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
+<span class="sd">              - `GammaDistributionPositive`: `a` (float), `loc` (float), `scale` (float)</span>
+<span class="sd">              - `NumericalDistribution`: `x` (list of float), `y` (list of float)</span>
+<span class="sd">              - `MultivariateNormalDistribution`: `central_value` (list of float), `covariance` (list of list of float)</span>
 <span class="sd">    constrained_observables : set</span>
 <span class="sd">        Set of observables that the measurement constrains</span>
 
@@ -2010,17 +2045,20 @@
 <span class="sd">            Name of the measurement.</span>
 <span class="sd">        constraints : list of dict</span>
 <span class="sd">            List of constraints on observables. Each constraint is a dictionary with the following keys:</span>
-<span class="sd">            - type : str</span>
-<span class="sd">                Type of the distribution. Can be &#39;NormalDistribution&#39;, &#39;HalfNormalDistribution&#39;, &#39;GammaDistributionPositive&#39;, &#39;NumericalDistribution&#39;, &#39;MultivariateNormalDistribution&#39;.</span>
-<span class="sd">            - observables : list containing str</span>
+
+<span class="sd">              - `type : str`</span>
+<span class="sd">                Type of the distribution. Can be `NormalDistribution`, `HalfNormalDistribution`, `GammaDistributionPositive`, `NumericalDistribution`, `MultivariateNormalDistribution`.</span>
+
+<span class="sd">              - `observables : list containing str`</span>
 <span class="sd">                List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a $q^2$ value or $q^2$ range).</span>
-<span class="sd">            - parameters : dict</span>
+
+<span class="sd">              - `parameters : dict`</span>
 <span class="sd">                Parameters of the distribution. The keys depend on the type of the distribution as follows:</span>
-<span class="sd">                - NormalDistribution : &#39;central_value&#39; (float), &#39;standard_deviation&#39; (float)</span>
-<span class="sd">                - HalfNormalDistribution : &#39;central_value&#39; (float), &#39;standard_deviation&#39; (float)</span>
-<span class="sd">                - GammaDistributionPositive : &#39;a&#39; (float), &#39;loc&#39; (float), &#39;scale&#39; (float)</span>
-<span class="sd">                - NumericalDistribution : &#39;x&#39; (list of float), &#39;y&#39; (list of float)</span>
-<span class="sd">                - MultivariateNormalDistribution : &#39;central_value&#39; (list of float), &#39;covariance&#39; (list of list of float)</span>
+<span class="sd">                  - `NormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
+<span class="sd">                  - `HalfNormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
+<span class="sd">                  - `GammaDistributionPositive`: `a` (float), `loc` (float), `scale` (float)</span>
+<span class="sd">                  - `NumericalDistribution`: `x` (list of float), `y` (list of float)</span>
+<span class="sd">                  - `MultivariateNormalDistribution`: `central_value` (list of float), `covariance` (list of list of float)</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -2141,11 +2179,11 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        observables : list or array of str</span>
-<span class="sd">            Observables to constrain</span>
+<span class="sd">            Observables to constrain.</span>
 <span class="sd">        include_measurements : list of str, optional</span>
-<span class="sd">            A list of measurements to include. If None, include all measurements.</span>
+<span class="sd">            A list of measurements to include. If `None`, include all measurements.</span>
 <span class="sd">        exclude_measurements : list of str, optional</span>
-<span class="sd">            A list of measurements to exclude. If None, exclude no measurements.</span>
+<span class="sd">            A list of measurements to exclude. If `None`, exclude no measurements.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -2191,15 +2229,15 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        observables : list or array of str</span>
-<span class="sd">            Observables to constrain</span>
+<span class="sd">            Observables to constrain.</span>
 <span class="sd">        observables_for_indices : list or array of str, optional</span>
-<span class="sd">            Observables to create indices for. If None, use the same observables as `observables`.</span>
+<span class="sd">            Observables to create indices for. If `None`, use the same observables as `observables`.</span>
 <span class="sd">        distribution_types : list of str, optional</span>
-<span class="sd">            Types of distributions to include. If None, include all distributions.</span>
+<span class="sd">            Types of distributions to include. If `None`, include all distributions.</span>
 <span class="sd">        include_measurements : list of str, optional</span>
-<span class="sd">            A list of measurements to include. If None, include all measurements.</span>
+<span class="sd">            A list of measurements to include. If `None`, include all measurements.</span>
 <span class="sd">        exclude_measurements : list of str, optional</span>
-<span class="sd">            A list of measurements to exclude. If None, exclude no measurements.</span>
+<span class="sd">            A list of measurements to exclude. If `None`, exclude no measurements.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -2566,18 +2604,28 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>List of constraints on observables. Each constraint is a dictionary with the following keys:
-- type : str
-    Type of the distribution. Can be 'NormalDistribution', 'HalfNormalDistribution', 'GammaDistributionPositive', 'NumericalDistribution', 'MultivariateNormalDistribution'.
-- observables : list containing str
-    List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a $q^2$ value or $q^2$ range).
-- parameters : dict
-    Parameters of the distribution. The keys depend on the type of the distribution as follows:
-    - NormalDistribution : 'central_value' (float), 'standard_deviation' (float)
-    - HalfNormalDistribution : 'central_value' (float), 'standard_deviation' (float)
-    - GammaDistributionPositive : 'a' (float), 'loc' (float), 'scale' (float)
-    - NumericalDistribution : 'x' (list of float), 'y' (list of float)
-    - MultivariateNormalDistribution : 'central_value' (list of float), 'covariance' (list of list of float)</p>
+                <p>List of constraints on observables. Each constraint is a dictionary with the following keys:</p>
+<ul>
+<li>
+<p><code>type : str</code>
+    Type of the distribution. Can be <code>NormalDistribution</code>, <code>HalfNormalDistribution</code>, <code>GammaDistributionPositive</code>, <code>NumericalDistribution</code>, <code>MultivariateNormalDistribution</code>.</p>
+</li>
+<li>
+<p><code>observables : list containing str</code>
+    List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a <span class="arithmatex">\(q^2\)</span> value or <span class="arithmatex">\(q^2\)</span> range).</p>
+</li>
+<li>
+<p><code>parameters : dict</code>
+    Parameters of the distribution. The keys depend on the type of the distribution as follows:</p>
+<ul>
+<li><code>NormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
+<li><code>HalfNormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
+<li><code>GammaDistributionPositive</code>: <code>a</code> (float), <code>loc</code> (float), <code>scale</code> (float)</li>
+<li><code>NumericalDistribution</code>: <code>x</code> (list of float), <code>y</code> (list of float)</li>
+<li><code>MultivariateNormalDistribution</code>: <code>central_value</code> (list of float), <code>covariance</code> (list of list of float)</li>
+</ul>
+</li>
+</ul>
               </div>
             </td>
             <td>
@@ -2619,13 +2667,7 @@
 
             <details class="quote">
               <summary>Source code in <code>jelli/core/measurement.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span>
-<span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">122</span>
 <span class="normal">123</span>
 <span class="normal">124</span>
 <span class="normal">125</span>
@@ -2671,7 +2713,16 @@
 <span class="normal">165</span>
 <span class="normal">166</span>
 <span class="normal">167</span>
-<span class="normal">168</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">constraints</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]):</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">constraints</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Initialize a Measurement object.</span>
 
@@ -2681,17 +2732,20 @@
 <span class="sd">        Name of the measurement.</span>
 <span class="sd">    constraints : list of dict</span>
 <span class="sd">        List of constraints on observables. Each constraint is a dictionary with the following keys:</span>
-<span class="sd">        - type : str</span>
-<span class="sd">            Type of the distribution. Can be &#39;NormalDistribution&#39;, &#39;HalfNormalDistribution&#39;, &#39;GammaDistributionPositive&#39;, &#39;NumericalDistribution&#39;, &#39;MultivariateNormalDistribution&#39;.</span>
-<span class="sd">        - observables : list containing str</span>
+
+<span class="sd">          - `type : str`</span>
+<span class="sd">            Type of the distribution. Can be `NormalDistribution`, `HalfNormalDistribution`, `GammaDistributionPositive`, `NumericalDistribution`, `MultivariateNormalDistribution`.</span>
+
+<span class="sd">          - `observables : list containing str`</span>
 <span class="sd">            List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a $q^2$ value or $q^2$ range).</span>
-<span class="sd">        - parameters : dict</span>
+
+<span class="sd">          - `parameters : dict`</span>
 <span class="sd">            Parameters of the distribution. The keys depend on the type of the distribution as follows:</span>
-<span class="sd">            - NormalDistribution : &#39;central_value&#39; (float), &#39;standard_deviation&#39; (float)</span>
-<span class="sd">            - HalfNormalDistribution : &#39;central_value&#39; (float), &#39;standard_deviation&#39; (float)</span>
-<span class="sd">            - GammaDistributionPositive : &#39;a&#39; (float), &#39;loc&#39; (float), &#39;scale&#39; (float)</span>
-<span class="sd">            - NumericalDistribution : &#39;x&#39; (list of float), &#39;y&#39; (list of float)</span>
-<span class="sd">            - MultivariateNormalDistribution : &#39;central_value&#39; (list of float), &#39;covariance&#39; (list of list of float)</span>
+<span class="sd">              - `NormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
+<span class="sd">              - `HalfNormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
+<span class="sd">              - `GammaDistributionPositive`: `a` (float), `loc` (float), `scale` (float)</span>
+<span class="sd">              - `NumericalDistribution`: `x` (list of float), `y` (list of float)</span>
+<span class="sd">              - `MultivariateNormalDistribution`: `central_value` (list of float), `covariance` (list of list of float)</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2779,23 +2833,23 @@
 
             <details class="quote">
               <summary>Source code in <code>jelli/core/measurement.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">599</span>
-<span class="normal">600</span>
-<span class="normal">601</span>
-<span class="normal">602</span>
-<span class="normal">603</span>
-<span class="normal">604</span>
-<span class="normal">605</span>
-<span class="normal">606</span>
-<span class="normal">607</span>
-<span class="normal">608</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">608</span>
 <span class="normal">609</span>
 <span class="normal">610</span>
 <span class="normal">611</span>
 <span class="normal">612</span>
 <span class="normal">613</span>
 <span class="normal">614</span>
-<span class="normal">615</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="normal">615</span>
+<span class="normal">616</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Clear all measurements.</span>
@@ -2907,16 +2961,7 @@
 
             <details class="quote">
               <summary>Source code in <code>jelli/core/measurement.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">436</span>
-<span class="normal">437</span>
-<span class="normal">438</span>
-<span class="normal">439</span>
-<span class="normal">440</span>
-<span class="normal">441</span>
-<span class="normal">442</span>
-<span class="normal">443</span>
-<span class="normal">444</span>
-<span class="normal">445</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">445</span>
 <span class="normal">446</span>
 <span class="normal">447</span>
 <span class="normal">448</span>
@@ -2966,7 +3011,16 @@
 <span class="normal">492</span>
 <span class="normal">493</span>
 <span class="normal">494</span>
-<span class="normal">495</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">combine_constraints</span><span class="p">(</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">combine_constraints</span><span class="p">(</span>
         <span class="n">constraints_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
@@ -3082,16 +3136,7 @@
 
             <details class="quote">
               <summary>Source code in <code>jelli/core/measurement.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span>
-<span class="normal">209</span>
-<span class="normal">210</span>
-<span class="normal">211</span>
-<span class="normal">212</span>
-<span class="normal">213</span>
-<span class="normal">214</span>
-<span class="normal">215</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">215</span>
 <span class="normal">216</span>
 <span class="normal">217</span>
 <span class="normal">218</span>
@@ -3099,7 +3144,16 @@
 <span class="normal">220</span>
 <span class="normal">221</span>
 <span class="normal">222</span>
-<span class="normal">223</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span> <span class="nf">get_all_measurements</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Return all measurements.</span>
@@ -3173,16 +3227,7 @@
 
             <details class="quote">
               <summary>Source code in <code>jelli/core/measurement.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">225</span>
-<span class="normal">226</span>
-<span class="normal">227</span>
-<span class="normal">228</span>
-<span class="normal">229</span>
-<span class="normal">230</span>
-<span class="normal">231</span>
-<span class="normal">232</span>
-<span class="normal">233</span>
-<span class="normal">234</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">234</span>
 <span class="normal">235</span>
 <span class="normal">236</span>
 <span class="normal">237</span>
@@ -3190,7 +3235,16 @@
 <span class="normal">239</span>
 <span class="normal">240</span>
 <span class="normal">241</span>
-<span class="normal">242</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span> <span class="nf">get_all_observables</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Return all observables.</span>
@@ -3295,16 +3349,7 @@
 
             <details class="quote">
               <summary>Source code in <code>jelli/core/measurement.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">497</span>
-<span class="normal">498</span>
-<span class="normal">499</span>
-<span class="normal">500</span>
-<span class="normal">501</span>
-<span class="normal">502</span>
-<span class="normal">503</span>
-<span class="normal">504</span>
-<span class="normal">505</span>
-<span class="normal">506</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">506</span>
 <span class="normal">507</span>
 <span class="normal">508</span>
 <span class="normal">509</span>
@@ -3323,7 +3368,16 @@
 <span class="normal">522</span>
 <span class="normal">523</span>
 <span class="normal">524</span>
-<span class="normal">525</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="normal">525</span>
+<span class="normal">526</span>
+<span class="normal">527</span>
+<span class="normal">528</span>
+<span class="normal">529</span>
+<span class="normal">530</span>
+<span class="normal">531</span>
+<span class="normal">532</span>
+<span class="normal">533</span>
+<span class="normal">534</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span> <span class="nf">get_combined_constraints</span><span class="p">(</span>
     <span class="bp">cls</span><span class="p">,</span>
     <span class="n">observables</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
@@ -3396,7 +3450,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Observables to constrain</p>
+                <p>Observables to constrain.</p>
               </div>
             </td>
             <td>
@@ -3412,7 +3466,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Observables to create indices for. If None, use the same observables as <code>observables</code>.</p>
+                <p>Observables to create indices for. If <code>None</code>, use the same observables as <code>observables</code>.</p>
               </div>
             </td>
             <td>
@@ -3428,7 +3482,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Types of distributions to include. If None, include all distributions.</p>
+                <p>Types of distributions to include. If <code>None</code>, include all distributions.</p>
               </div>
             </td>
             <td>
@@ -3444,7 +3498,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>A list of measurements to include. If None, include all measurements.</p>
+                <p>A list of measurements to include. If <code>None</code>, include all measurements.</p>
               </div>
             </td>
             <td>
@@ -3460,7 +3514,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>A list of measurements to exclude. If None, exclude no measurements.</p>
+                <p>A list of measurements to exclude. If <code>None</code>, exclude no measurements.</p>
               </div>
             </td>
             <td>
@@ -3507,16 +3561,7 @@
 
             <details class="quote">
               <summary>Source code in <code>jelli/core/measurement.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">292</span>
-<span class="normal">293</span>
-<span class="normal">294</span>
-<span class="normal">295</span>
-<span class="normal">296</span>
-<span class="normal">297</span>
-<span class="normal">298</span>
-<span class="normal">299</span>
-<span class="normal">300</span>
-<span class="normal">301</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">301</span>
 <span class="normal">302</span>
 <span class="normal">303</span>
 <span class="normal">304</span>
@@ -3649,7 +3694,16 @@
 <span class="normal">431</span>
 <span class="normal">432</span>
 <span class="normal">433</span>
-<span class="normal">434</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span> <span class="nf">get_constraints</span><span class="p">(</span>
     <span class="bp">cls</span><span class="p">,</span>
     <span class="n">observables</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
@@ -3664,15 +3718,15 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    observables : list or array of str</span>
-<span class="sd">        Observables to constrain</span>
+<span class="sd">        Observables to constrain.</span>
 <span class="sd">    observables_for_indices : list or array of str, optional</span>
-<span class="sd">        Observables to create indices for. If None, use the same observables as `observables`.</span>
+<span class="sd">        Observables to create indices for. If `None`, use the same observables as `observables`.</span>
 <span class="sd">    distribution_types : list of str, optional</span>
-<span class="sd">        Types of distributions to include. If None, include all distributions.</span>
+<span class="sd">        Types of distributions to include. If `None`, include all distributions.</span>
 <span class="sd">    include_measurements : list of str, optional</span>
-<span class="sd">        A list of measurements to include. If None, include all measurements.</span>
+<span class="sd">        A list of measurements to include. If `None`, include all measurements.</span>
 <span class="sd">    exclude_measurements : list of str, optional</span>
-<span class="sd">        A list of measurements to exclude. If None, exclude no measurements.</span>
+<span class="sd">        A list of measurements to exclude. If `None`, exclude no measurements.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -3836,7 +3890,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Observables to constrain</p>
+                <p>Observables to constrain.</p>
               </div>
             </td>
             <td>
@@ -3852,7 +3906,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>A list of measurements to include. If None, include all measurements.</p>
+                <p>A list of measurements to include. If <code>None</code>, include all measurements.</p>
               </div>
             </td>
             <td>
@@ -3868,7 +3922,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>A list of measurements to exclude. If None, exclude no measurements.</p>
+                <p>A list of measurements to exclude. If <code>None</code>, exclude no measurements.</p>
               </div>
             </td>
             <td>
@@ -3911,16 +3965,7 @@
 
             <details class="quote">
               <summary>Source code in <code>jelli/core/measurement.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">244</span>
-<span class="normal">245</span>
-<span class="normal">246</span>
-<span class="normal">247</span>
-<span class="normal">248</span>
-<span class="normal">249</span>
-<span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span>
-<span class="normal">253</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">253</span>
 <span class="normal">254</span>
 <span class="normal">255</span>
 <span class="normal">256</span>
@@ -3957,7 +4002,16 @@
 <span class="normal">287</span>
 <span class="normal">288</span>
 <span class="normal">289</span>
-<span class="normal">290</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span> <span class="nf">get_measurements</span><span class="p">(</span>
     <span class="bp">cls</span><span class="p">,</span>
     <span class="n">observables</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
@@ -3970,11 +4024,11 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    observables : list or array of str</span>
-<span class="sd">        Observables to constrain</span>
+<span class="sd">        Observables to constrain.</span>
 <span class="sd">    include_measurements : list of str, optional</span>
-<span class="sd">        A list of measurements to include. If None, include all measurements.</span>
+<span class="sd">        A list of measurements to include. If `None`, include all measurements.</span>
 <span class="sd">    exclude_measurements : list of str, optional</span>
-<span class="sd">        A list of measurements to exclude. If None, exclude no measurements.</span>
+<span class="sd">        A list of measurements to exclude. If `None`, exclude no measurements.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -4093,16 +4147,7 @@
 
             <details class="quote">
               <summary>Source code in <code>jelli/core/measurement.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">537</span>
-<span class="normal">538</span>
-<span class="normal">539</span>
-<span class="normal">540</span>
-<span class="normal">541</span>
-<span class="normal">542</span>
-<span class="normal">543</span>
-<span class="normal">544</span>
-<span class="normal">545</span>
-<span class="normal">546</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">546</span>
 <span class="normal">547</span>
 <span class="normal">548</span>
 <span class="normal">549</span>
@@ -4124,7 +4169,16 @@
 <span class="normal">565</span>
 <span class="normal">566</span>
 <span class="normal">567</span>
-<span class="normal">568</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="normal">568</span>
+<span class="normal">569</span>
+<span class="normal">570</span>
+<span class="normal">571</span>
+<span class="normal">572</span>
+<span class="normal">573</span>
+<span class="normal">574</span>
+<span class="normal">575</span>
+<span class="normal">576</span>
+<span class="normal">577</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Load measurements from a json file or a directory containing json files.</span>
@@ -4242,16 +4296,7 @@
 
             <details class="quote">
               <summary>Source code in <code>jelli/core/measurement.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">570</span>
-<span class="normal">571</span>
-<span class="normal">572</span>
-<span class="normal">573</span>
-<span class="normal">574</span>
-<span class="normal">575</span>
-<span class="normal">576</span>
-<span class="normal">577</span>
-<span class="normal">578</span>
-<span class="normal">579</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">579</span>
 <span class="normal">580</span>
 <span class="normal">581</span>
 <span class="normal">582</span>
@@ -4269,7 +4314,16 @@
 <span class="normal">594</span>
 <span class="normal">595</span>
 <span class="normal">596</span>
-<span class="normal">597</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="normal">597</span>
+<span class="normal">598</span>
+<span class="normal">599</span>
+<span class="normal">600</span>
+<span class="normal">601</span>
+<span class="normal">602</span>
+<span class="normal">603</span>
+<span class="normal">604</span>
+<span class="normal">605</span>
+<span class="normal">606</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
 <span class="k">def</span> <span class="nf">unload</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">measurement_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Unload measurements.</span>
@@ -4371,6 +4425,10 @@
     
     
       <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

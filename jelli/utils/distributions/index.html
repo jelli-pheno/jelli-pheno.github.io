@@ -996,8 +996,8 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>A dictionary where keys are distribution types (e.g., 'NumericalDistribution', 'NormalDistribution', etc.)
-and values are dictionaries containing distribution information such as 'central_value', 'standard_deviation', etc.</p>
+                <p>A dictionary where keys are distribution types (e.g., <code>NumericalDistribution</code>, <code>NormalDistribution</code>, etc.)
+and values are dictionaries containing distribution information such as <code>central_value</code>, <code>standard_deviation</code>, etc.</p>
               </div>
             </td>
             <td>
@@ -1013,7 +1013,7 @@ and values are dictionaries containing distribution information such as 'central
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Number of points in the common support for the output distribution. Default is 1000.</p>
+                <p>Number of points in the common support for the output distribution. Default is <code>1000</code>.</p>
               </div>
             </td>
             <td>
@@ -1039,8 +1039,8 @@ and values are dictionaries containing distribution information such as 'central
             </td>
             <td>
               <div class="doc-md-description">
-                <p>A dictionary containing the combined numerical distribution information, including 'measurement_name', 'observables',
-'observable_indices', 'x', 'y', and 'log_y'.</p>
+                <p>A dictionary containing the combined numerical distribution information, including <code>measurement_name</code>, <code>observables</code>,
+<code>observable_indices</code>, <code>x</code>, <code>y</code>, and <code>log_y</code>.</p>
               </div>
             </td>
           </tr>
@@ -1226,16 +1226,16 @@ and values are dictionaries containing distribution information such as 'central
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    constraints : Dict[str, Dict[str, np.ndarray]]</span>
-<span class="sd">        A dictionary where keys are distribution types (e.g., &#39;NumericalDistribution&#39;, &#39;NormalDistribution&#39;, etc.)</span>
-<span class="sd">        and values are dictionaries containing distribution information such as &#39;central_value&#39;, &#39;standard_deviation&#39;, etc.</span>
+<span class="sd">        A dictionary where keys are distribution types (e.g., `NumericalDistribution`, `NormalDistribution`, etc.)</span>
+<span class="sd">        and values are dictionaries containing distribution information such as `central_value`, `standard_deviation`, etc.</span>
 <span class="sd">    n_points : int, optional</span>
-<span class="sd">        Number of points in the common support for the output distribution. Default is 1000.</span>
+<span class="sd">        Number of points in the common support for the output distribution. Default is `1000`.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Dict[str, np.ndarray]</span>
-<span class="sd">        A dictionary containing the combined numerical distribution information, including &#39;measurement_name&#39;, &#39;observables&#39;,</span>
-<span class="sd">        &#39;observable_indices&#39;, &#39;x&#39;, &#39;y&#39;, and &#39;log_y&#39;.</span>
+<span class="sd">        A dictionary containing the combined numerical distribution information, including `measurement_name`, `observables`,</span>
+<span class="sd">        `observable_indices`, `x`, `y`, and `log_y`.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -1679,7 +1679,7 @@ central value, and standard deviation.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Type of the distribution (e.g., 'NumericalDistribution', 'NormalDistribution', etc.).</p>
+                <p>Type of the distribution (e.g., <code>NumericalDistribution</code>, <code>NormalDistribution</code>, etc.).</p>
               </div>
             </td>
             <td>
@@ -1695,7 +1695,7 @@ central value, and standard deviation.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Information about the distribution, such as 'central_value', 'standard_deviation', etc.</p>
+                <p>Information about the distribution, such as <code>central_value</code>, <code>standard_deviation</code>, etc.</p>
               </div>
             </td>
             <td>
@@ -1727,7 +1727,7 @@ central value, and standard deviation.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Random seed for reproducibility. Default is None.</p>
+                <p>Random seed for reproducibility. Default is <code>None</code>.</p>
               </div>
             </td>
             <td>
@@ -1753,9 +1753,9 @@ central value, and standard deviation.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>A list of arrays in case of MultivariateNormalDistribution, where the length of the list is the number of constraints,
-and each array is of shape (n_observables, n_samples).
-For other distributions, returns a single array of shape (n_constraints, n_samples).</p>
+                <p>A list of arrays in case of <code>MultivariateNormalDistribution</code>, where the length of the list is the number of constraints,
+and each array is of shape <code>(n_observables, n_samples)</code>.
+For other distributions, returns a single array of shape <code>(n_constraints, n_samples)</code>.</p>
               </div>
             </td>
           </tr>
@@ -1776,12 +1776,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 
             <details class="quote">
               <summary>Source code in <code>jelli/utils/distributions.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 969</span>
-<span class="normal"> 970</span>
-<span class="normal"> 971</span>
-<span class="normal"> 972</span>
-<span class="normal"> 973</span>
-<span class="normal"> 974</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 974</span>
 <span class="normal"> 975</span>
 <span class="normal"> 976</span>
 <span class="normal"> 977</span>
@@ -1852,7 +1847,12 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 <span class="normal">1042</span>
 <span class="normal">1043</span>
 <span class="normal">1044</span>
-<span class="normal">1045</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_distribution_samples</span><span class="p">(</span>
+<span class="normal">1045</span>
+<span class="normal">1046</span>
+<span class="normal">1047</span>
+<span class="normal">1048</span>
+<span class="normal">1049</span>
+<span class="normal">1050</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_distribution_samples</span><span class="p">(</span>
         <span class="n">dist_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">dist_info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
         <span class="n">n_samples</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -1864,20 +1864,20 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    dist_type : str</span>
-<span class="sd">        Type of the distribution (e.g., &#39;NumericalDistribution&#39;, &#39;NormalDistribution&#39;, etc.).</span>
+<span class="sd">        Type of the distribution (e.g., `NumericalDistribution`, `NormalDistribution`, etc.).</span>
 <span class="sd">    dist_info : Dict[str, np.ndarray]</span>
-<span class="sd">        Information about the distribution, such as &#39;central_value&#39;, &#39;standard_deviation&#39;, etc.</span>
+<span class="sd">        Information about the distribution, such as `central_value`, `standard_deviation`, etc.</span>
 <span class="sd">    n_samples : int</span>
 <span class="sd">        Number of samples to generate.</span>
 <span class="sd">    seed : int, optional</span>
-<span class="sd">        Random seed for reproducibility. Default is None.</span>
+<span class="sd">        Random seed for reproducibility. Default is `None`.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    List[np.ndarray] or np.ndarray</span>
-<span class="sd">        A list of arrays in case of MultivariateNormalDistribution, where the length of the list is the number of constraints,</span>
-<span class="sd">        and each array is of shape (n_observables, n_samples).</span>
-<span class="sd">        For other distributions, returns a single array of shape (n_constraints, n_samples).</span>
+<span class="sd">        A list of arrays in case of `MultivariateNormalDistribution`, where the length of the list is the number of constraints,</span>
+<span class="sd">        and each array is of shape `(n_observables, n_samples)`.</span>
+<span class="sd">        For other distributions, returns a single array of shape `(n_constraints, n_samples)`.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -1969,7 +1969,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Type of the distribution (e.g., 'NumericalDistribution', 'NormalDistribution', etc.).</p>
+                <p>Type of the distribution (e.g., <code>NumericalDistribution</code>, <code>NormalDistribution</code>, etc.).</p>
               </div>
             </td>
             <td>
@@ -1985,7 +1985,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Information about the distribution, such as 'central_value', 'standard_deviation', etc.</p>
+                <p>Information about the distribution, such as <code>central_value</code>, <code>standard_deviation</code>, etc.</p>
               </div>
             </td>
             <td>
@@ -2083,9 +2083,9 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    dist_type : str</span>
-<span class="sd">        Type of the distribution (e.g., &#39;NumericalDistribution&#39;, &#39;NormalDistribution&#39;, etc.).</span>
+<span class="sd">        Type of the distribution (e.g., `NumericalDistribution`, `NormalDistribution`, etc.).</span>
 <span class="sd">    dist_info : Dict[str, np.ndarray]</span>
-<span class="sd">        Information about the distribution, such as &#39;central_value&#39;, &#39;standard_deviation&#39;, etc.</span>
+<span class="sd">        Information about the distribution, such as `central_value`, `standard_deviation`, etc.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2228,12 +2228,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 
             <details class="quote">
               <summary>Source code in <code>jelli/utils/distributions.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">945</span>
-<span class="normal">946</span>
-<span class="normal">947</span>
-<span class="normal">948</span>
-<span class="normal">949</span>
-<span class="normal">950</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">950</span>
 <span class="normal">951</span>
 <span class="normal">952</span>
 <span class="normal">953</span>
@@ -2250,7 +2245,12 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 <span class="normal">964</span>
 <span class="normal">965</span>
 <span class="normal">966</span>
-<span class="normal">967</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_inverse_transform_samples</span><span class="p">(</span>
+<span class="normal">967</span>
+<span class="normal">968</span>
+<span class="normal">969</span>
+<span class="normal">970</span>
+<span class="normal">971</span>
+<span class="normal">972</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_inverse_transform_samples</span><span class="p">(</span>
         <span class="n">ppf</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
         <span class="n">n_samples</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">n_constraints</span><span class="p">:</span> <span class="nb">int</span>
@@ -2292,7 +2292,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 
         <p>Get the mode and uncertainty of one or more distributions based on the distribution parameters.</p>
 <p>A Gaussian approximation or an upper limit based on the 95% confidence level is used, depending on the distribution type and parameters.</p>
-<p>In case of the upper limit, the mode is set to nan.</p>
+<p>In case of the upper limit, the mode is set to <code>nan</code>.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2315,7 +2315,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Type of the distribution (e.g., 'NumericalDistribution', 'NormalDistribution', etc.).</p>
+                <p>Type of the distribution (e.g., <code>NumericalDistribution</code>, <code>NormalDistribution</code>, etc.).</p>
               </div>
             </td>
             <td>
@@ -2331,7 +2331,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Information about the distribution, such as 'central_value', 'standard_deviation', etc.</p>
+                <p>Information about the distribution, such as <code>central_value</code>, <code>standard_deviation</code>, etc.</p>
               </div>
             </td>
             <td>
@@ -2383,12 +2383,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 
             <details class="quote">
               <summary>Source code in <code>jelli/utils/distributions.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">854</span>
-<span class="normal">855</span>
-<span class="normal">856</span>
-<span class="normal">857</span>
-<span class="normal">858</span>
-<span class="normal">859</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">859</span>
 <span class="normal">860</span>
 <span class="normal">861</span>
 <span class="normal">862</span>
@@ -2472,7 +2467,12 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 <span class="normal">940</span>
 <span class="normal">941</span>
 <span class="normal">942</span>
-<span class="normal">943</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_mode_and_uncertainty</span><span class="p">(</span>
+<span class="normal">943</span>
+<span class="normal">944</span>
+<span class="normal">945</span>
+<span class="normal">946</span>
+<span class="normal">947</span>
+<span class="normal">948</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_mode_and_uncertainty</span><span class="p">(</span>
         <span class="n">dist_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">dist_info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
@@ -2481,14 +2481,14 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 
 <span class="sd">    A Gaussian approximation or an upper limit based on the 95% confidence level is used, depending on the distribution type and parameters.</span>
 
-<span class="sd">    In case of the upper limit, the mode is set to nan.</span>
+<span class="sd">    In case of the upper limit, the mode is set to `nan`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    dist_type : str</span>
-<span class="sd">        Type of the distribution (e.g., &#39;NumericalDistribution&#39;, &#39;NormalDistribution&#39;, etc.).</span>
+<span class="sd">        Type of the distribution (e.g., `NumericalDistribution`, `NormalDistribution`, etc.).</span>
 <span class="sd">    dist_info : Dict[str, np.ndarray]</span>
-<span class="sd">        Information about the distribution, such as &#39;central_value&#39;, &#39;standard_deviation&#39;, etc.</span>
+<span class="sd">        Information about the distribution, such as `central_value`, `standard_deviation`, etc.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2670,12 +2670,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 
             <details class="quote">
               <summary>Source code in <code>jelli/utils/distributions.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">827</span>
-<span class="normal">828</span>
-<span class="normal">829</span>
-<span class="normal">830</span>
-<span class="normal">831</span>
-<span class="normal">832</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">832</span>
 <span class="normal">833</span>
 <span class="normal">834</span>
 <span class="normal">835</span>
@@ -2695,7 +2690,12 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 <span class="normal">849</span>
 <span class="normal">850</span>
 <span class="normal">851</span>
-<span class="normal">852</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_ppf_gamma_distribution_positive</span><span class="p">(</span>
+<span class="normal">852</span>
+<span class="normal">853</span>
+<span class="normal">854</span>
+<span class="normal">855</span>
+<span class="normal">856</span>
+<span class="normal">857</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_ppf_gamma_distribution_positive</span><span class="p">(</span>
         <span class="n">a</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">loc</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">scale</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -2777,7 +2777,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
             </td>
             <td>
               <div class="doc-md-description">
-                <p>PDF values at the points xp.</p>
+                <p>PDF values at the points <code>xp</code>.</p>
               </div>
             </td>
             <td>
@@ -2874,7 +2874,12 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 <span class="normal">822</span>
 <span class="normal">823</span>
 <span class="normal">824</span>
-<span class="normal">825</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_ppf_numerical_distribution</span><span class="p">(</span>
+<span class="normal">825</span>
+<span class="normal">826</span>
+<span class="normal">827</span>
+<span class="normal">828</span>
+<span class="normal">829</span>
+<span class="normal">830</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_ppf_numerical_distribution</span><span class="p">(</span>
         <span class="n">xp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">fp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
@@ -2886,7 +2891,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 <span class="sd">    xp : np.ndarray</span>
 <span class="sd">        Points at which the PDF is defined.</span>
 <span class="sd">    fp : np.ndarray</span>
-<span class="sd">        PDF values at the points xp.</span>
+<span class="sd">        PDF values at the points `xp`.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2912,16 +2917,21 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 <span class="sd">            ----------</span>
 <span class="sd">            q : float or np.ndarray</span>
 <span class="sd">                Lower-tail probabilities at which to compute the PPF.</span>
-<span class="sd">                - If scalar, computes PPF for that probability across all distributions.</span>
-<span class="sd">                - If 1D array of shape (k,), computes PPF at k probabilities for all distributions.</span>
-<span class="sd">                - If 2D array of shape (k, m), computes PPF at k probabilities for each of the m distributions.</span>
+
+<span class="sd">                  - If scalar, computes PPF for that probability across all distributions.</span>
+
+<span class="sd">                  - If 1D array of shape (k,), computes PPF at k probabilities for all distributions.</span>
+
+<span class="sd">                  - If 2D array of shape (k, m), computes PPF at k probabilities for each of the m distributions.</span>
 
 <span class="sd">            Returns</span>
 <span class="sd">            -------</span>
 <span class="sd">            np.ndarray</span>
 <span class="sd">                The quantiles corresponding to the input probabilities.</span>
-<span class="sd">                - If input is scalar, returns 1D array of shape (m,)</span>
-<span class="sd">                - Otherwise returns array of shape (k, m)</span>
+
+<span class="sd">                  - If input is scalar, returns 1D array of shape (m,)</span>
+
+<span class="sd">                  - Otherwise returns array of shape (k, m)</span>
 <span class="sd">            &quot;&quot;&quot;</span>
 
             <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
@@ -2953,7 +2963,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
 
     <div class="doc doc-contents ">
 
-        <p>Compute the log of the trapezoidal integral of the exponential of log_y over x.</p>
+        <p>Compute the log of the trapezoidal integral of the exponential of <code>log_y</code> over <code>x</code>.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2992,7 +3002,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Points at which log_y is defined. It is assumed that x is uniformly spaced.</p>
+                <p>Points at which <code>log_y</code> is defined. It is assumed that <code>x</code> is uniformly spaced.</p>
               </div>
             </td>
             <td>
@@ -3018,7 +3028,7 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
             </td>
             <td>
               <div class="doc-md-description">
-                <p>The logarithm of the trapezoidal integral of exp(log_y) over x.</p>
+                <p>The logarithm of the trapezoidal integral of <code>exp(log_y)</code> over <code>x</code>.</p>
               </div>
             </td>
           </tr>
@@ -3070,19 +3080,19 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
         <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Compute the log of the trapezoidal integral of the exponential of log_y over x.</span>
+<span class="sd">    Compute the log of the trapezoidal integral of the exponential of `log_y` over `x`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    log_y : np.ndarray</span>
 <span class="sd">        Logarithm of the values to be integrated.</span>
 <span class="sd">    x : np.ndarray</span>
-<span class="sd">        Points at which log_y is defined. It is assumed that x is uniformly spaced.</span>
+<span class="sd">        Points at which `log_y` is defined. It is assumed that `x` is uniformly spaced.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    float</span>
-<span class="sd">        The logarithm of the trapezoidal integral of exp(log_y) over x.</span>
+<span class="sd">        The logarithm of the trapezoidal integral of `exp(log_y)` over `x`.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -3160,6 +3170,10 @@ For other distributions, returns a single array of shape (n_constraints, n_sampl
     
     
       <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

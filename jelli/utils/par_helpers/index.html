@@ -885,52 +885,131 @@
 
         <p>Computes sorted indices mapping linear parameters
 to bilinear ones that exist in the provided coefficient list.</p>
-<p>Args:
-    keys_pars (list): List of linear parameter keys, each element is a tuple (w, c),
-                         where w is the parameter name and c is 'R' for real or 'I' for imaginary.
-    keys_coeff (list): List of bilinear coefficient keys. Each element is a tuple (w1, w2, c),
-                           where w1 and w2 are the parameter names and c 'RR', 'RI', 'IR', or 'II',
-                           denoting all possible interferences.
-Returns:
-    (np.ndarray): Sorted indices of bilinear coefficients that match <code>keys_coeff</code>.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>keys_pars</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of linear parameter keys, each element is a tuple <code>(w, c)</code>,
+where <code>w</code> is the parameter name and <code>c</code> is <code>R</code> for real or <code>I</code> for imaginary.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>keys_coeff</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of bilinear coefficient keys. Each element is a tuple <code>(w1, w2, c)</code>,
+where <code>w1</code> and <code>w2</code> are the parameter names and <code>c</code> is <code>RR</code>, <code>RI</code>, <code>IR</code>, or <code>II</code>,
+denoting all possible interferences.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>`np.ndarray`</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Sorted indices of bilinear coefficients that match <code>keys_coeff</code>.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
             <details class="quote">
               <summary>Source code in <code>jelli/utils/par_helpers.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 98</span>
 <span class="normal"> 99</span>
 <span class="normal">100</span>
 <span class="normal">101</span>
 <span class="normal">102</span>
-<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_par_monomial_indices</span><span class="p">(</span><span class="n">keys_pars</span><span class="p">,</span> <span class="n">keys_coeff</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes sorted indices mapping linear parameters</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_par_monomial_indices</span><span class="p">(</span><span class="n">keys_pars</span><span class="p">,</span> <span class="n">keys_coeff</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes sorted indices mapping linear parameters</span>
 <span class="sd">    to bilinear ones that exist in the provided coefficient list.</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        keys_pars (list): List of linear parameter keys, each element is a tuple (w, c),</span>
-<span class="sd">                             where w is the parameter name and c is &#39;R&#39; for real or &#39;I&#39; for imaginary.</span>
-<span class="sd">        keys_coeff (list): List of bilinear coefficient keys. Each element is a tuple (w1, w2, c),</span>
-<span class="sd">                               where w1 and w2 are the parameter names and c &#39;RR&#39;, &#39;RI&#39;, &#39;IR&#39;, or &#39;II&#39;,</span>
-<span class="sd">                               denoting all possible interferences.</span>
-<span class="sd">    Returns:</span>
-<span class="sd">        (np.ndarray): Sorted indices of bilinear coefficients that match `keys_coeff`.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    keys_pars : list</span>
+<span class="sd">        List of linear parameter keys, each element is a tuple `(w, c)`,</span>
+<span class="sd">        where `w` is the parameter name and `c` is `R` for real or `I` for imaginary.</span>
+<span class="sd">    keys_coeff : list</span>
+<span class="sd">        List of bilinear coefficient keys. Each element is a tuple `(w1, w2, c)`,</span>
+<span class="sd">        where `w1` and `w2` are the parameter names and `c` is `RR`, `RI`, `IR`, or `II`,</span>
+<span class="sd">        denoting all possible interferences.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    `np.ndarray`</span>
+<span class="sd">        Sorted indices of bilinear coefficients that match `keys_coeff`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Generate all possible bilinear combinations of keys_pars</span>
     <span class="n">keys_pars_bilinears</span> <span class="o">=</span> <span class="n">keys_array</span><span class="p">(</span><span class="n">keys_product</span><span class="p">(</span>
@@ -960,33 +1039,93 @@ Returns:
     <div class="doc doc-contents ">
 
         <p>Converts a list of tuples into a numpy array.</p>
-<p>Args:
-    keys (list): A list containing tuples.</p>
-<p>Returns:
-    (np.ndarray): A numpy array with dtype=tuple containing the provided keys.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>keys</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list containing tuples.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>`np.ndarray`</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A numpy array with dtype=tuple containing the provided keys.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
             <details class="quote">
               <summary>Source code in <code>jelli/utils/par_helpers.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span>
-<span class="normal">58</span>
-<span class="normal">59</span>
-<span class="normal">60</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">60</span>
 <span class="normal">61</span>
 <span class="normal">62</span>
 <span class="normal">63</span>
 <span class="normal">64</span>
-<span class="normal">65</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">keys_array</span><span class="p">(</span><span class="n">keys</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts a list of tuples into a numpy array.</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">keys_array</span><span class="p">(</span><span class="n">keys</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a list of tuples into a numpy array.</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        keys (list): A list containing tuples.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    keys : list</span>
+<span class="sd">        A list containing tuples.</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        (np.ndarray): A numpy array with dtype=tuple containing the provided keys.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    `np.ndarray`</span>
+<span class="sd">        A numpy array with dtype=tuple containing the provided keys.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">tuple</span><span class="p">)</span>
     <span class="n">array</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">keys</span>
@@ -1009,36 +1148,113 @@ Returns:
     <div class="doc doc-contents ">
 
         <p>Checks if elements in <code>keys_a</code> exist in <code>keys_b</code>.</p>
-<p>Args:
-    keys_a (list): List of keys to check.
-    keys_b (list): List of reference keys.</p>
-<p>Returns:
-    (np.ndarray): Boolean numpy array indicating presence of each key in <code>keys_a</code> within <code>keys_b</code>.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>keys_a</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of keys to check.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>keys_b</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>List of reference keys.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>`np.ndarray`</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Boolean numpy array indicating presence of each key in <code>keys_a</code> within <code>keys_b</code>.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
             <details class="quote">
               <summary>Source code in <code>jelli/utils/par_helpers.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">67</span>
-<span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span>
-<span class="normal">71</span>
-<span class="normal">72</span>
-<span class="normal">73</span>
-<span class="normal">74</span>
-<span class="normal">75</span>
-<span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">keys_isin</span><span class="p">(</span><span class="n">keys_a</span><span class="p">,</span> <span class="n">keys_b</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if elements in `keys_a` exist in `keys_b`.</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">keys_isin</span><span class="p">(</span><span class="n">keys_a</span><span class="p">,</span> <span class="n">keys_b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks if elements in `keys_a` exist in `keys_b`.</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        keys_a (list): List of keys to check.</span>
-<span class="sd">        keys_b (list): List of reference keys.</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    keys_a : list</span>
+<span class="sd">        List of keys to check.</span>
+<span class="sd">    keys_b : list</span>
+<span class="sd">        List of reference keys.</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        (np.ndarray): Boolean numpy array indicating presence of each key in `keys_a` within `keys_b`.</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    `np.ndarray`</span>
+<span class="sd">        Boolean numpy array indicating presence of each key in `keys_a` within `keys_b`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">set_b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">keys_b</span><span class="p">)</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">item</span> <span class="ow">in</span> <span class="n">set_b</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">keys_a</span><span class="p">])</span>
@@ -1061,11 +1277,74 @@ Returns:
     <div class="doc doc-contents ">
 
         <p>Computes the Cartesian product of two sets of keys, producing bilinear combinations.</p>
-<p>Args:
-    keys_a (list): A list where each element is a tuple of the form (w, c).
-    keys_b (list): Another list with elements of the form (w, c).</p>
-<p>Returns:
-    (list): A list of bilinear combinations in the form (w_a, w_b, c_a + c_b).</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>keys_a</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list where each element is a tuple of the form (w, c).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>keys_b</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Another list with elements of the form (w, c).</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="list">list</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>A list of bilinear combinations in the form (w_a, w_b, c_a + c_b).</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
 
             <details class="quote">
@@ -1086,15 +1365,27 @@ Returns:
 <span class="normal">49</span>
 <span class="normal">50</span>
 <span class="normal">51</span>
-<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">keys_product</span><span class="p">(</span><span class="n">keys_a</span><span class="p">,</span> <span class="n">keys_b</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the Cartesian product of two sets of keys, producing bilinear combinations.</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">keys_product</span><span class="p">(</span><span class="n">keys_a</span><span class="p">,</span> <span class="n">keys_b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the Cartesian product of two sets of keys, producing bilinear combinations.</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        keys_a (list): A list where each element is a tuple of the form (w, c).</span>
-<span class="sd">        keys_b (list): Another list with elements of the form (w, c).</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    keys_a: list</span>
+<span class="sd">        A list where each element is a tuple of the form (w, c).</span>
+<span class="sd">    keys_b: list</span>
+<span class="sd">        Another list with elements of the form (w, c).</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        (list): A list of bilinear combinations in the form (w_a, w_b, c_a + c_b).</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">        A list of bilinear combinations in the form (w_a, w_b, c_a + c_b).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys_a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">[</span>
@@ -1168,6 +1459,10 @@ Returns:
     
     
       <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
