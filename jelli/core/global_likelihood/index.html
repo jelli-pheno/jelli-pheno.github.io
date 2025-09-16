@@ -3115,7 +3115,7 @@
 
     <span class="k">def</span> <span class="nf">parameter_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create a GlobalLikelihoodPoint instance.</span>
+<span class="sd">        Create a `GlobalLikelihoodPoint` instance.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -3124,16 +3124,16 @@
 <span class="sd">            based on the number and types of these arguments. Accepted input signatures:</span>
 
 <span class="sd">              1. `parameter_point(par_dict: dict, scale: Union[float, int], *, par_dep_cov: bool = False)`</span>
-<span class="sd">                - Create a GlobalLikelihoodPoint from a dictionary of parameters and a scale.</span>
+<span class="sd">                - Create a `GlobalLikelihoodPoint` from a dictionary of parameters and a scale.</span>
 
 <span class="sd">              2. `parameter_point(w: wilson.Wilson, *, par_dep_cov: bool = False)`</span>
-<span class="sd">                - Create a GlobalLikelihoodPoint from a `wilson.Wilson` object.</span>
+<span class="sd">                - Create a `GlobalLikelihoodPoint` from a `wilson.Wilson` object.</span>
 
 <span class="sd">              3. `parameter_point(wc: wilson.wcxf.WC, *, par_dep_cov: bool = False)`</span>
-<span class="sd">                - Create a GlobalLikelihoodPoint from a `wilson.wcxf.WC` object.</span>
+<span class="sd">                - Create a `GlobalLikelihoodPoint` from a `wilson.wcxf.WC` object.</span>
 
 <span class="sd">              4. `parameter_point(filename: str, *, par_dep_cov: bool = False)`</span>
-<span class="sd">                - Create a GlobalLikelihoodPoint from the path to a WCxf file.</span>
+<span class="sd">                - Create a `GlobalLikelihoodPoint` from the path to a WCxf file.</span>
 
 <span class="sd">        par_dep_cov : bool, optional</span>
 <span class="sd">            If `True`, use the parameter dependent covariance matrix for the likelihood point.</span>
@@ -3250,7 +3250,7 @@
 
     <div class="doc doc-contents ">
 
-        <p>Create a GlobalLikelihoodPoint instance.</p>
+        <p>Create a <code>GlobalLikelihoodPoint</code> instance.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3279,25 +3279,25 @@ based on the number and types of these arguments. Accepted input signatures:</p>
 <li>
 <p><code>parameter_point(par_dict: dict, scale: Union[float, int], *, par_dep_cov: bool = False)</code></p>
 <ul>
-<li>Create a GlobalLikelihoodPoint from a dictionary of parameters and a scale.</li>
+<li>Create a <code>GlobalLikelihoodPoint</code> from a dictionary of parameters and a scale.</li>
 </ul>
 </li>
 <li>
 <p><code>parameter_point(w: wilson.Wilson, *, par_dep_cov: bool = False)</code></p>
 <ul>
-<li>Create a GlobalLikelihoodPoint from a <code>wilson.Wilson</code> object.</li>
+<li>Create a <code>GlobalLikelihoodPoint</code> from a <code>wilson.Wilson</code> object.</li>
 </ul>
 </li>
 <li>
 <p><code>parameter_point(wc: wilson.wcxf.WC, *, par_dep_cov: bool = False)</code></p>
 <ul>
-<li>Create a GlobalLikelihoodPoint from a <code>wilson.wcxf.WC</code> object.</li>
+<li>Create a <code>GlobalLikelihoodPoint</code> from a <code>wilson.wcxf.WC</code> object.</li>
 </ul>
 </li>
 <li>
 <p><code>parameter_point(filename: str, *, par_dep_cov: bool = False)</code></p>
 <ul>
-<li>Create a GlobalLikelihoodPoint from the path to a WCxf file.</li>
+<li>Create a <code>GlobalLikelihoodPoint</code> from the path to a WCxf file.</li>
 </ul>
 </li>
 </ol>
@@ -3412,7 +3412,7 @@ Default is <code>False</code>.</p>
 <span class="normal">1153</span>
 <span class="normal">1154</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">parameter_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create a GlobalLikelihoodPoint instance.</span>
+<span class="sd">    Create a `GlobalLikelihoodPoint` instance.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -3421,16 +3421,16 @@ Default is <code>False</code>.</p>
 <span class="sd">        based on the number and types of these arguments. Accepted input signatures:</span>
 
 <span class="sd">          1. `parameter_point(par_dict: dict, scale: Union[float, int], *, par_dep_cov: bool = False)`</span>
-<span class="sd">            - Create a GlobalLikelihoodPoint from a dictionary of parameters and a scale.</span>
+<span class="sd">            - Create a `GlobalLikelihoodPoint` from a dictionary of parameters and a scale.</span>
 
 <span class="sd">          2. `parameter_point(w: wilson.Wilson, *, par_dep_cov: bool = False)`</span>
-<span class="sd">            - Create a GlobalLikelihoodPoint from a `wilson.Wilson` object.</span>
+<span class="sd">            - Create a `GlobalLikelihoodPoint` from a `wilson.Wilson` object.</span>
 
 <span class="sd">          3. `parameter_point(wc: wilson.wcxf.WC, *, par_dep_cov: bool = False)`</span>
-<span class="sd">            - Create a GlobalLikelihoodPoint from a `wilson.wcxf.WC` object.</span>
+<span class="sd">            - Create a `GlobalLikelihoodPoint` from a `wilson.wcxf.WC` object.</span>
 
 <span class="sd">          4. `parameter_point(filename: str, *, par_dep_cov: bool = False)`</span>
-<span class="sd">            - Create a GlobalLikelihoodPoint from the path to a WCxf file.</span>
+<span class="sd">            - Create a `GlobalLikelihoodPoint` from the path to a WCxf file.</span>
 
 <span class="sd">    par_dep_cov : bool, optional</span>
 <span class="sd">        If `True`, use the parameter dependent covariance matrix for the likelihood point.</span>

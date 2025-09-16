@@ -1058,29 +1058,29 @@
                 <code>constraints</code>
             </td>
             <td>
-                  <code>list of dict</code>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
                 <p>List of constraints on observables. Each constraint is a dictionary with the following keys:</p>
 <ul>
 <li>
-<p><code>type : str</code>
+<p><code>type</code> (<code>str</code>):
     Type of the distribution. Can be <code>NormalDistribution</code>, <code>HalfNormalDistribution</code>, <code>GammaDistributionPositive</code>, <code>NumericalDistribution</code>, <code>MultivariateNormalDistribution</code>.</p>
 </li>
 <li>
-<p><code>observables : list containing str</code>
+<p><code>observables</code> (<code>list[str]</code>):
     List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a <span class="arithmatex">\(q^2\)</span> value or <span class="arithmatex">\(q^2\)</span> range).</p>
 </li>
 <li>
-<p><code>parameters : dict</code>
+<p><code>parameters</code> (<code>dict</code>):
     Parameters of the distribution. The keys depend on the type of the distribution as follows:</p>
 <ul>
-<li><code>NormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
-<li><code>HalfNormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
-<li><code>GammaDistributionPositive</code>: <code>a</code> (float), <code>loc</code> (float), <code>scale</code> (float)</li>
-<li><code>NumericalDistribution</code>: <code>x</code> (list of float), <code>y</code> (list of float)</li>
-<li><code>MultivariateNormalDistribution</code>: <code>central_value</code> (list of float), <code>covariance</code> (list of list of float)</li>
+<li><code>NormalDistribution</code>: <code>central_value</code> (<code>float</code>), <code>standard_deviation</code> (<code>float</code>)</li>
+<li><code>HalfNormalDistribution</code>: <code>central_value</code> (<code>float</code>), <code>standard_deviation</code> (<code>float</code>)</li>
+<li><code>GammaDistributionPositive</code>: <code>a</code> (<code>float</code>), <code>loc</code> (<code>float</code>), <code>scale</code> (<code>float</code>)</li>
+<li><code>NumericalDistribution</code>: <code>x</code> (<code>list[float]</code>), <code>y</code> (<code>list[float]</code>)</li>
+<li><code>MultivariateNormalDistribution</code>: <code>central_value</code> (<code>list[float]</code>), <code>covariance</code> (<code>list[list[float]]</code>)</li>
 </ul>
 </li>
 </ul>
@@ -1118,29 +1118,29 @@
           <tr class="doc-section-item">
             <td><code><span title="jelli.core.measurement.Measurement.constraints">constraints</span></code></td>
             <td>
-                  <code>list of dict</code>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
                 <p>List of constraints on observables. Each constraint is a dictionary with the following keys:</p>
 <ul>
 <li>
-<p><code>observables : list containing str</code>
+<p><code>observables</code> (<code>list[str]</code>):
     List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a <span class="arithmatex">\(q^2\)</span> value or <span class="arithmatex">\(q^2\)</span> range).</p>
 </li>
 <li>
-<p><code>distribution_type : str</code>
+<p><code>distribution_type</code> (<code>str</code>):
     Type of the distribution. Can be <code>NormalDistribution</code>, <code>HalfNormalDistribution</code>, <code>GammaDistributionPositive</code>, <code>NumericalDistribution</code>, <code>MultivariateNormalDistribution</code>.</p>
 </li>
 <li>
-<p><code>parameters : dict</code>
+<p><code>parameters</code> (<code>dict</code>)
     Parameters of the distribution. The keys depend on the type of the distribution as follows:</p>
 <ul>
-<li><code>NormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
-<li><code>HalfNormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
-<li><code>GammaDistributionPositive</code>: <code>a</code> (float), <code>loc</code> (float), <code>scale</code> (float)</li>
-<li><code>NumericalDistribution</code>: <code>x</code> (list of float), <code>y</code> (list of float)</li>
-<li><code>MultivariateNormalDistribution</code>: <code>central_value</code> (list of float), <code>covariance</code> (list of list of float)</li>
+<li><code>NormalDistribution</code>: <code>central_value</code> (<code>float</code>), <code>standard_deviation</code> (<code>float</code>)</li>
+<li><code>HalfNormalDistribution</code>: <code>central_value</code> (<code>float</code>), <code>standard_deviation</code> (<code>float</code>)</li>
+<li><code>GammaDistributionPositive</code>: <code>a</code> (<code>float</code>), <code>loc</code> (<code>float</code>), <code>scale</code> (<code>float</code>)</li>
+<li><code>NumericalDistribution</code>: <code>x</code> (<code>list[float]</code>), <code>y</code> (<code>list[float]</code>)</li>
+<li><code>MultivariateNormalDistribution</code>: <code>central_value</code> (<code>list[float]</code>), <code>covariance</code> (<code>list[list[float]]</code>)</li>
 </ul>
 </li>
 </ul>
@@ -1932,43 +1932,43 @@
 <span class="sd">    ----------</span>
 <span class="sd">    name : str</span>
 <span class="sd">        Name of the measurement.</span>
-<span class="sd">    constraints : list of dict</span>
+<span class="sd">    constraints : list[dict]</span>
 <span class="sd">        List of constraints on observables. Each constraint is a dictionary with the following keys:</span>
 
-<span class="sd">          - `type : str`</span>
+<span class="sd">          - `type` (`str`):</span>
 <span class="sd">            Type of the distribution. Can be `NormalDistribution`, `HalfNormalDistribution`, `GammaDistributionPositive`, `NumericalDistribution`, `MultivariateNormalDistribution`.</span>
 
-<span class="sd">          - `observables : list containing str`</span>
+<span class="sd">          - `observables` (`list[str]`):</span>
 <span class="sd">            List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a $q^2$ value or $q^2$ range).</span>
 
-<span class="sd">          - `parameters : dict`</span>
+<span class="sd">          - `parameters` (`dict`):</span>
 <span class="sd">            Parameters of the distribution. The keys depend on the type of the distribution as follows:</span>
-<span class="sd">              - `NormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
-<span class="sd">              - `HalfNormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
-<span class="sd">              - `GammaDistributionPositive`: `a` (float), `loc` (float), `scale` (float)</span>
-<span class="sd">              - `NumericalDistribution`: `x` (list of float), `y` (list of float)</span>
-<span class="sd">              - `MultivariateNormalDistribution`: `central_value` (list of float), `covariance` (list of list of float)</span>
+<span class="sd">              - `NormalDistribution`: `central_value` (`float`), `standard_deviation` (`float`)</span>
+<span class="sd">              - `HalfNormalDistribution`: `central_value` (`float`), `standard_deviation` (`float`)</span>
+<span class="sd">              - `GammaDistributionPositive`: `a` (`float`), `loc` (`float`), `scale` (`float`)</span>
+<span class="sd">              - `NumericalDistribution`: `x` (`list[float]`), `y` (`list[float]`)</span>
+<span class="sd">              - `MultivariateNormalDistribution`: `central_value` (`list[float]`), `covariance` (`list[list[float]]`)</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    name : str</span>
 <span class="sd">        Name of the measurement.</span>
-<span class="sd">    constraints : list of dict</span>
+<span class="sd">    constraints : list[dict]</span>
 <span class="sd">        List of constraints on observables. Each constraint is a dictionary with the following keys:</span>
 
-<span class="sd">          - `observables : list containing str`</span>
+<span class="sd">          - `observables` (`list[str]`):</span>
 <span class="sd">            List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a $q^2$ value or $q^2$ range).</span>
 
-<span class="sd">          - `distribution_type : str`</span>
+<span class="sd">          - `distribution_type` (`str`):</span>
 <span class="sd">            Type of the distribution. Can be `NormalDistribution`, `HalfNormalDistribution`, `GammaDistributionPositive`, `NumericalDistribution`, `MultivariateNormalDistribution`.</span>
 
-<span class="sd">          - `parameters : dict`</span>
+<span class="sd">          - `parameters` (`dict`)</span>
 <span class="sd">            Parameters of the distribution. The keys depend on the type of the distribution as follows:</span>
-<span class="sd">              - `NormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
-<span class="sd">              - `HalfNormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
-<span class="sd">              - `GammaDistributionPositive`: `a` (float), `loc` (float), `scale` (float)</span>
-<span class="sd">              - `NumericalDistribution`: `x` (list of float), `y` (list of float)</span>
-<span class="sd">              - `MultivariateNormalDistribution`: `central_value` (list of float), `covariance` (list of list of float)</span>
+<span class="sd">              - `NormalDistribution`: `central_value` (`float`), `standard_deviation` (`float`)</span>
+<span class="sd">              - `HalfNormalDistribution`: `central_value` (`float`), `standard_deviation` (`float`)</span>
+<span class="sd">              - `GammaDistributionPositive`: `a` (`float`), `loc` (`float`), `scale` (`float`)</span>
+<span class="sd">              - `NumericalDistribution`: `x` (`list[float]`), `y` (`list[float]`)</span>
+<span class="sd">              - `MultivariateNormalDistribution`: `central_value` (`list[float]`), `covariance` (`list[list[float]]`)</span>
 <span class="sd">    constrained_observables : set</span>
 <span class="sd">        Set of observables that the measurement constrains</span>
 
@@ -2043,22 +2043,22 @@
 <span class="sd">        ----------</span>
 <span class="sd">        name : str</span>
 <span class="sd">            Name of the measurement.</span>
-<span class="sd">        constraints : list of dict</span>
+<span class="sd">        constraints : list[dict]</span>
 <span class="sd">            List of constraints on observables. Each constraint is a dictionary with the following keys:</span>
 
-<span class="sd">              - `type : str`</span>
+<span class="sd">              - `type` (`str`)</span>
 <span class="sd">                Type of the distribution. Can be `NormalDistribution`, `HalfNormalDistribution`, `GammaDistributionPositive`, `NumericalDistribution`, `MultivariateNormalDistribution`.</span>
 
-<span class="sd">              - `observables : list containing str`</span>
+<span class="sd">              - `observables` (`list[str]`)</span>
 <span class="sd">                List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a $q^2$ value or $q^2$ range).</span>
 
-<span class="sd">              - `parameters : dict`</span>
+<span class="sd">              - `parameters` (`dict`)</span>
 <span class="sd">                Parameters of the distribution. The keys depend on the type of the distribution as follows:</span>
-<span class="sd">                  - `NormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
-<span class="sd">                  - `HalfNormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
-<span class="sd">                  - `GammaDistributionPositive`: `a` (float), `loc` (float), `scale` (float)</span>
-<span class="sd">                  - `NumericalDistribution`: `x` (list of float), `y` (list of float)</span>
-<span class="sd">                  - `MultivariateNormalDistribution`: `central_value` (list of float), `covariance` (list of list of float)</span>
+<span class="sd">                  - `NormalDistribution`: `central_value` (`float`), `standard_deviation` (`float`)</span>
+<span class="sd">                  - `HalfNormalDistribution`: `central_value` (`float`), `standard_deviation` (`float`)</span>
+<span class="sd">                  - `GammaDistributionPositive`: `a` (`float`), `loc` (`float`), `scale` (`float`)</span>
+<span class="sd">                  - `NumericalDistribution`: `x` (`list[float]`), `y` (`list[float]`)</span>
+<span class="sd">                  - `MultivariateNormalDistribution`: `central_value` (`list[float]`), `covariance` (`list[list[float]]`)</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -2178,14 +2178,14 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        observables : list or array of str</span>
+<span class="sd">        observables : list or array[str]</span>
 <span class="sd">            Observables to constrain.</span>
-<span class="sd">        include_measurements : list of str, optional</span>
+<span class="sd">        include_measurements : list[str], optional</span>
 <span class="sd">            A list of measurements to include. If `None`, include all measurements.</span>
-<span class="sd">        exclude_measurements : list of str, optional</span>
+<span class="sd">        exclude_measurements : list[str], optional</span>
 <span class="sd">            A list of measurements to exclude. If `None`, exclude no measurements.</span>
 
-<span class="sd">        Returns</span>
+<span class="sd">        Returnsxw</span>
 <span class="sd">        -------</span>
 <span class="sd">        dict</span>
 <span class="sd">            Dictionary containing measurements that constrain the specified observables.</span>
@@ -2228,15 +2228,15 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        observables : list or array of str</span>
+<span class="sd">        observables : list or array[str]</span>
 <span class="sd">            Observables to constrain.</span>
-<span class="sd">        observables_for_indices : list or array of str, optional</span>
+<span class="sd">        observables_for_indices : list or array[str], optional</span>
 <span class="sd">            Observables to create indices for. If `None`, use the same observables as `observables`.</span>
-<span class="sd">        distribution_types : list of str, optional</span>
+<span class="sd">        distribution_types : list[str], optional</span>
 <span class="sd">            Types of distributions to include. If `None`, include all distributions.</span>
-<span class="sd">        include_measurements : list of str, optional</span>
+<span class="sd">        include_measurements : list[str], optional</span>
 <span class="sd">            A list of measurements to include. If `None`, include all measurements.</span>
-<span class="sd">        exclude_measurements : list of str, optional</span>
+<span class="sd">        exclude_measurements : list[str], optional</span>
 <span class="sd">            A list of measurements to exclude. If `None`, exclude no measurements.</span>
 
 <span class="sd">        Returns</span>
@@ -2368,7 +2368,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        constraints_list : list of dict</span>
+<span class="sd">        constraints_list : list[dict]</span>
 <span class="sd">            List of constraints to combine, one constraints dictionary per observable.</span>
 
 <span class="sd">        Returns</span>
@@ -2429,7 +2429,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        observables : list or array of str</span>
+<span class="sd">        observables : list or array[str]</span>
 <span class="sd">            Observables to combine constraints for.</span>
 
 <span class="sd">        Returns</span>
@@ -2499,7 +2499,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        measurement_names : list of str</span>
+<span class="sd">        measurement_names : list[str]</span>
 <span class="sd">            Names of the measurements to unload.</span>
 
 <span class="sd">        Returns</span>
@@ -2600,29 +2600,29 @@
                 <code>constraints</code>
             </td>
             <td>
-                  <code>list of dict</code>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
                 <p>List of constraints on observables. Each constraint is a dictionary with the following keys:</p>
 <ul>
 <li>
-<p><code>type : str</code>
+<p><code>type</code> (<code>str</code>)
     Type of the distribution. Can be <code>NormalDistribution</code>, <code>HalfNormalDistribution</code>, <code>GammaDistributionPositive</code>, <code>NumericalDistribution</code>, <code>MultivariateNormalDistribution</code>.</p>
 </li>
 <li>
-<p><code>observables : list containing str</code>
+<p><code>observables</code> (<code>list[str]</code>)
     List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a <span class="arithmatex">\(q^2\)</span> value or <span class="arithmatex">\(q^2\)</span> range).</p>
 </li>
 <li>
-<p><code>parameters : dict</code>
+<p><code>parameters</code> (<code>dict</code>)
     Parameters of the distribution. The keys depend on the type of the distribution as follows:</p>
 <ul>
-<li><code>NormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
-<li><code>HalfNormalDistribution</code>: <code>central_value</code> (float), <code>standard_deviation</code> (float)</li>
-<li><code>GammaDistributionPositive</code>: <code>a</code> (float), <code>loc</code> (float), <code>scale</code> (float)</li>
-<li><code>NumericalDistribution</code>: <code>x</code> (list of float), <code>y</code> (list of float)</li>
-<li><code>MultivariateNormalDistribution</code>: <code>central_value</code> (list of float), <code>covariance</code> (list of list of float)</li>
+<li><code>NormalDistribution</code>: <code>central_value</code> (<code>float</code>), <code>standard_deviation</code> (<code>float</code>)</li>
+<li><code>HalfNormalDistribution</code>: <code>central_value</code> (<code>float</code>), <code>standard_deviation</code> (<code>float</code>)</li>
+<li><code>GammaDistributionPositive</code>: <code>a</code> (<code>float</code>), <code>loc</code> (<code>float</code>), <code>scale</code> (<code>float</code>)</li>
+<li><code>NumericalDistribution</code>: <code>x</code> (<code>list[float]</code>), <code>y</code> (<code>list[float]</code>)</li>
+<li><code>MultivariateNormalDistribution</code>: <code>central_value</code> (<code>list[float]</code>), <code>covariance</code> (<code>list[list[float]]</code>)</li>
 </ul>
 </li>
 </ul>
@@ -2730,22 +2730,22 @@
 <span class="sd">    ----------</span>
 <span class="sd">    name : str</span>
 <span class="sd">        Name of the measurement.</span>
-<span class="sd">    constraints : list of dict</span>
+<span class="sd">    constraints : list[dict]</span>
 <span class="sd">        List of constraints on observables. Each constraint is a dictionary with the following keys:</span>
 
-<span class="sd">          - `type : str`</span>
+<span class="sd">          - `type` (`str`)</span>
 <span class="sd">            Type of the distribution. Can be `NormalDistribution`, `HalfNormalDistribution`, `GammaDistributionPositive`, `NumericalDistribution`, `MultivariateNormalDistribution`.</span>
 
-<span class="sd">          - `observables : list containing str`</span>
+<span class="sd">          - `observables` (`list[str]`)</span>
 <span class="sd">            List of observables that the constraint applies to. The observables are either strings or tuples (in case of additional arguments like a $q^2$ value or $q^2$ range).</span>
 
-<span class="sd">          - `parameters : dict`</span>
+<span class="sd">          - `parameters` (`dict`)</span>
 <span class="sd">            Parameters of the distribution. The keys depend on the type of the distribution as follows:</span>
-<span class="sd">              - `NormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
-<span class="sd">              - `HalfNormalDistribution`: `central_value` (float), `standard_deviation` (float)</span>
-<span class="sd">              - `GammaDistributionPositive`: `a` (float), `loc` (float), `scale` (float)</span>
-<span class="sd">              - `NumericalDistribution`: `x` (list of float), `y` (list of float)</span>
-<span class="sd">              - `MultivariateNormalDistribution`: `central_value` (list of float), `covariance` (list of list of float)</span>
+<span class="sd">              - `NormalDistribution`: `central_value` (`float`), `standard_deviation` (`float`)</span>
+<span class="sd">              - `HalfNormalDistribution`: `central_value` (`float`), `standard_deviation` (`float`)</span>
+<span class="sd">              - `GammaDistributionPositive`: `a` (`float`), `loc` (`float`), `scale` (`float`)</span>
+<span class="sd">              - `NumericalDistribution`: `x` (`list[float]`), `y` (`list[float]`)</span>
+<span class="sd">              - `MultivariateNormalDistribution`: `central_value` (`list[float]`), `covariance` (`list[list[float]]`)</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2903,7 +2903,7 @@
                 <code>constraints_list</code>
             </td>
             <td>
-                  <code>list of dict</code>
+                  <code><span title="list">list</span>[<span title="dict">dict</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3030,7 +3030,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    constraints_list : list of dict</span>
+<span class="sd">    constraints_list : list[dict]</span>
 <span class="sd">        List of constraints to combine, one constraints dictionary per observable.</span>
 
 <span class="sd">    Returns</span>
@@ -3302,7 +3302,7 @@
                 <code>observables</code>
             </td>
             <td>
-                  <code>list or array of str</code>
+                  <code><span title="list">list</span> or <span title="array">array</span>[<span title="str">str</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3387,7 +3387,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    observables : list or array of str</span>
+<span class="sd">    observables : list or array[str]</span>
 <span class="sd">        Observables to combine constraints for.</span>
 
 <span class="sd">    Returns</span>
@@ -3446,7 +3446,7 @@
                 <code>observables</code>
             </td>
             <td>
-                  <code>list or array of str</code>
+                  <code><span title="list">list</span> or <span title="array">array</span>[<span title="str">str</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3462,7 +3462,7 @@
                 <code>observables_for_indices</code>
             </td>
             <td>
-                  <code>list or array of str</code>
+                  <code><span title="list">list</span> or <span title="array">array</span>[<span title="str">str</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3478,7 +3478,7 @@
                 <code>distribution_types</code>
             </td>
             <td>
-                  <code>list of str</code>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3494,7 +3494,7 @@
                 <code>include_measurements</code>
             </td>
             <td>
-                  <code>list of str</code>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3510,7 +3510,7 @@
                 <code>exclude_measurements</code>
             </td>
             <td>
-                  <code>list of str</code>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3717,15 +3717,15 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    observables : list or array of str</span>
+<span class="sd">    observables : list or array[str]</span>
 <span class="sd">        Observables to constrain.</span>
-<span class="sd">    observables_for_indices : list or array of str, optional</span>
+<span class="sd">    observables_for_indices : list or array[str], optional</span>
 <span class="sd">        Observables to create indices for. If `None`, use the same observables as `observables`.</span>
-<span class="sd">    distribution_types : list of str, optional</span>
+<span class="sd">    distribution_types : list[str], optional</span>
 <span class="sd">        Types of distributions to include. If `None`, include all distributions.</span>
-<span class="sd">    include_measurements : list of str, optional</span>
+<span class="sd">    include_measurements : list[str], optional</span>
 <span class="sd">        A list of measurements to include. If `None`, include all measurements.</span>
-<span class="sd">    exclude_measurements : list of str, optional</span>
+<span class="sd">    exclude_measurements : list[str], optional</span>
 <span class="sd">        A list of measurements to exclude. If `None`, exclude no measurements.</span>
 
 <span class="sd">    Returns</span>
@@ -3886,7 +3886,7 @@
                 <code>observables</code>
             </td>
             <td>
-                  <code>list or array of str</code>
+                  <code><span title="list">list</span> or <span title="array">array</span>[<span title="str">str</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3902,7 +3902,7 @@
                 <code>include_measurements</code>
             </td>
             <td>
-                  <code>list of str</code>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3918,7 +3918,7 @@
                 <code>exclude_measurements</code>
             </td>
             <td>
-                  <code>list of str</code>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -3933,28 +3933,11 @@
     </table>
 
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                  <code><span title="dict">dict</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Dictionary containing measurements that constrain the specified observables.</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
+<details class="returnsxw" open>
+  <summary>Returnsxw</summary>
+  <p>dict
+    Dictionary containing measurements that constrain the specified observables.</p>
+</details>
 
 <p><span class="doc-section-title">Examples:</span></p>
     <p>Get measurements that constrain the specified observables:</p>
@@ -4023,14 +4006,14 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    observables : list or array of str</span>
+<span class="sd">    observables : list or array[str]</span>
 <span class="sd">        Observables to constrain.</span>
-<span class="sd">    include_measurements : list of str, optional</span>
+<span class="sd">    include_measurements : list[str], optional</span>
 <span class="sd">        A list of measurements to include. If `None`, include all measurements.</span>
-<span class="sd">    exclude_measurements : list of str, optional</span>
+<span class="sd">    exclude_measurements : list[str], optional</span>
 <span class="sd">        A list of measurements to exclude. If `None`, exclude no measurements.</span>
 
-<span class="sd">    Returns</span>
+<span class="sd">    Returnsxw</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
 <span class="sd">        Dictionary containing measurements that constrain the specified observables.</span>
@@ -4250,7 +4233,7 @@
                 <code>measurement_names</code>
             </td>
             <td>
-                  <code>list of str</code>
+                  <code><span title="list">list</span>[<span title="str">str</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -4330,7 +4313,7 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    measurement_names : list of str</span>
+<span class="sd">    measurement_names : list[str]</span>
 <span class="sd">        Names of the measurements to unload.</span>
 
 <span class="sd">    Returns</span>
