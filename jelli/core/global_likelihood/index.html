@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://jelli-pheno.github.io/jelli/core/global_likelihood/">
       
       
-        <link rel="prev" href="../get_jitted_functions/">
+        <link rel="prev" href="../experimental_correlations/">
       
       
         <link rel="next" href="../global_likelihood_point/">
@@ -337,6 +337,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../compiled_likelihood/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    compiled_likelihood
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../custom_basis/" class="md-nav__link">
         
   
@@ -366,29 +389,6 @@
   
   <span class="md-ellipsis">
     experimental_correlations
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../get_jitted_functions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    get_jitted_functions
     
   </span>
   
@@ -583,9 +583,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jelli.core.global_likelihood.GlobalLikelihood.get_jitted" class="md-nav__link">
+  <a href="#jelli.core.global_likelihood.GlobalLikelihood.get_compiled_likelihood" class="md-nav__link">
     <span class="md-ellipsis">
-      get_jitted
+      get_compiled_likelihood
     </span>
   </a>
   
@@ -1085,9 +1085,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jelli.core.global_likelihood.GlobalLikelihood.get_jitted" class="md-nav__link">
+  <a href="#jelli.core.global_likelihood.GlobalLikelihood.get_compiled_likelihood" class="md-nav__link">
     <span class="md-ellipsis">
-      get_jitted
+      get_compiled_likelihood
     </span>
   </a>
   
@@ -1854,13 +1854,13 @@
             </td>
           </tr>
           <tr class="doc-section-item">
-            <td><code><span title="jelli.core.global_likelihood.GlobalLikelihood._cache_jitted_functions">_cache_jitted_functions</span></code></td>
+            <td><code><span title="jelli.core.global_likelihood.GlobalLikelihood._cache_compiled_likelihood">_cache_compiled_likelihood</span></code></td>
             <td>
                   <code><span title="dict">dict</span></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>A cache for JIT-compiled functions to avoid redundant compilations.</p>
+                <p>A cache for <code>CompiledLikelihood</code> instances to avoid redundant computations.</p>
               </div>
             </td>
           </tr>
@@ -1906,10 +1906,10 @@
               </td>
             </tr>
             <tr class="doc-section-item">
-              <td><code><a class="autorefs autorefs-internal" title="get_jitted(par_list, likelihood, par_dep_cov=False) (jelli.core.global_likelihood.GlobalLikelihood.get_jitted)" href="#jelli.core.global_likelihood.GlobalLikelihood.get_jitted">get_jitted</a></code></td>
+              <td><code><a class="autorefs autorefs-internal" title="get_compiled_likelihood(par_list, likelihood, par_dep_cov=False) (jelli.core.global_likelihood.GlobalLikelihood.get_compiled_likelihood)" href="#jelli.core.global_likelihood.GlobalLikelihood.get_compiled_likelihood">get_compiled_likelihood</a></code></td>
               <td>
                 <div class="doc-md-description">
-                  <p>Returns a cached instance of <code>GetJittedFunctions</code> for the specified parameters and likelihood.</p>
+                  <p>Returns an instance of <code>CompiledLikelihood</code> for the specified parameters and likelihood.</p>
                 </div>
               </td>
             </tr>
@@ -2054,8 +2054,8 @@
     <p>Get the negative log-likelihood function and data for specific parameters and a likelihood:</p>
     <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">negative_log_likelihood</span><span class="p">,</span> <span class="n">log_likelihood_data</span> <span class="o">=</span> <span class="n">gl</span><span class="o">.</span><span class="n">get_negative_log_likelihood</span><span class="p">(</span><span class="n">par_list</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;lq1_1111&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;lq3_1111&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">)],</span> <span class="n">likelihood</span><span class="o">=</span><span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-    <p>Get a cached instance of <code>GetJittedFunctions</code> for specific parameters and a likelihood:</p>
-    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">jitted</span> <span class="o">=</span> <span class="n">gl</span><span class="o">.</span><span class="n">get_jitted</span><span class="p">(</span><span class="n">par_list</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;lq1_1111&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;lq3_1111&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">)],</span> <span class="n">likelihood</span><span class="o">=</span><span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <p>Get an instance of <code>CompiledLikelihood</code> for specific parameters and a likelihood:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">compiled_likelihood</span> <span class="o">=</span> <span class="n">gl</span><span class="o">.</span><span class="n">get_compiled_likelihood</span><span class="p">(</span><span class="n">par_list</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;lq1_1111&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;lq3_1111&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">)],</span> <span class="n">likelihood</span><span class="o">=</span><span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
     <p>Access the parameter basis:</p>
     <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">parameter_basis</span> <span class="o">=</span> <span class="n">gl</span><span class="o">.</span><span class="n">parameter_basis</span>
@@ -2767,7 +2767,7 @@
         <span class="p">})</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">experimental_values_no_theory_uncertainty</span> <span class="o">=</span> <span class="n">experimental_values</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">_cache_jitted_functions</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_cache_compiled_likelihood</span> <span class="o">=</span> <span class="p">{}</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -5430,15 +5430,15 @@
 <div class="doc doc-object doc-function">
 
 
-<h3 id="jelli.core.global_likelihood.GlobalLikelihood.get_jitted" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">get_jitted</span><span class="p">(</span><span class="n">par_list</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+<h3 id="jelli.core.global_likelihood.GlobalLikelihood.get_compiled_likelihood" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_compiled_likelihood</span><span class="p">(</span><span class="n">par_list</span><span class="p">,</span> <span class="n">likelihood</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
 
 </h3>
 
 
     <div class="doc doc-contents ">
 
-        <p>Returns a cached instance of <code>GetJittedFunctions</code> for the specified parameters and likelihood.</p>
+        <p>Returns an instance of <code>CompiledLikelihood</code> for the specified parameters and likelihood.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -5515,11 +5515,11 @@
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code><a class="autorefs autorefs-internal" title="GetJittedFunctions(global_likelihood_instance, par_list, likelihood='global', par_dep_cov=False) (jelli.core.get_jitted_functions.GetJittedFunctions)" href="../get_jitted_functions/#jelli.core.get_jitted_functions.GetJittedFunctions">GetJittedFunctions</a></code>
+                  <code><a class="autorefs autorefs-internal" title="CompiledLikelihood(global_likelihood_instance, par_list, likelihood='global', par_dep_cov=False) (jelli.core.compiled_likelihood.CompiledLikelihood)" href="../compiled_likelihood/#jelli.core.compiled_likelihood.CompiledLikelihood">CompiledLikelihood</a></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>An instance of <code>GetJittedFunctions</code> containing jitted functions for likelihood evaluation.</p>
+                <p>An instance of <code>CompiledLikelihood</code> containing jitted functions for likelihood evaluation.</p>
               </div>
             </td>
           </tr>
@@ -5528,8 +5528,8 @@
 
 
 <p><span class="doc-section-title">Examples:</span></p>
-    <p>Get jitted functions for a specific set of parameters and the global likelihood:</p>
-    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">jitted</span> <span class="o">=</span> <span class="n">global_likelihood</span><span class="o">.</span><span class="n">get_jitted</span><span class="p">(</span><span class="n">par_list</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;lq1_1111&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;lq3_1111&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">)],</span> <span class="n">likelihood</span><span class="o">=</span><span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <p>Get a <code>CompiledLikelihood</code> instance for a specific set of parameters and the global likelihood:</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">compiled_likelihood</span> <span class="o">=</span> <span class="n">global_likelihood</span><span class="o">.</span><span class="n">get_compiled_likelihood</span><span class="p">(</span><span class="n">par_list</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;lq1_1111&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;lq3_1111&#39;</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">)],</span> <span class="n">likelihood</span><span class="o">=</span><span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -5571,14 +5571,14 @@
 <span class="normal">1639</span>
 <span class="normal">1640</span>
 <span class="normal">1641</span>
-<span class="normal">1642</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_jitted</span><span class="p">(</span>
+<span class="normal">1642</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_compiled_likelihood</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">par_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
     <span class="n">likelihood</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]],</span>
     <span class="n">par_dep_cov</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Returns a cached instance of `GetJittedFunctions` for the specified parameters and likelihood.</span>
+<span class="sd">    Returns an instance of `CompiledLikelihood` for the specified parameters and likelihood.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -5591,23 +5591,23 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    GetJittedFunctions</span>
-<span class="sd">        An instance of `GetJittedFunctions` containing jitted functions for likelihood evaluation.</span>
+<span class="sd">    CompiledLikelihood</span>
+<span class="sd">        An instance of `CompiledLikelihood` containing jitted functions for likelihood evaluation.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    Get jitted functions for a specific set of parameters and the global likelihood:</span>
-<span class="sd">    &gt;&gt;&gt; jitted = global_likelihood.get_jitted(par_list=[(&#39;lq1_1111&#39;, &#39;R&#39;), (&#39;lq3_1111&#39;, &#39;R&#39;)], likelihood=&#39;global&#39;, par_dep_cov=False)</span>
+<span class="sd">    Get a `CompiledLikelihood` instance for a specific set of parameters and the global likelihood:</span>
+<span class="sd">    &gt;&gt;&gt; compiled_likelihood = global_likelihood.get_compiled_likelihood(par_list=[(&#39;lq1_1111&#39;, &#39;R&#39;), (&#39;lq3_1111&#39;, &#39;R&#39;)], likelihood=&#39;global&#39;, par_dep_cov=False)</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">par_list</span><span class="p">),</span> <span class="n">likelihood</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_jitted_functions</span><span class="p">:</span>
-        <span class="n">jitted_functions</span> <span class="o">=</span> <span class="n">GetJittedFunctions</span><span class="p">(</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">par_list</span><span class="p">),</span> <span class="n">likelihood</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_compiled_likelihood</span><span class="p">:</span>
+        <span class="n">compiled_likelihood</span> <span class="o">=</span> <span class="n">CompiledLikelihood</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="n">par_list</span><span class="p">,</span>
             <span class="n">likelihood</span><span class="p">,</span>
             <span class="n">par_dep_cov</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_jitted_functions</span><span class="p">[(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">par_list</span><span class="p">),</span> <span class="n">likelihood</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="p">)]</span> <span class="o">=</span> <span class="n">jitted_functions</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_jitted_functions</span><span class="p">[(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">par_list</span><span class="p">),</span> <span class="n">likelihood</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_compiled_likelihood</span><span class="p">[(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">par_list</span><span class="p">),</span> <span class="n">likelihood</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="p">)]</span> <span class="o">=</span> <span class="n">compiled_likelihood</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_compiled_likelihood</span><span class="p">[(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">par_list</span><span class="p">),</span> <span class="n">likelihood</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="p">)]</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
