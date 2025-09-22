@@ -489,6 +489,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#jelli.core.global_likelihood_point.GlobalLikelihoodPoint.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#jelli.core.global_likelihood_point.GlobalLikelihoodPoint._obstable_filter_sort" class="md-nav__link">
     <span class="md-ellipsis">
       _obstable_filter_sort
@@ -860,6 +869,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#jelli.core.global_likelihood_point.GlobalLikelihoodPoint.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#jelli.core.global_likelihood_point.GlobalLikelihoodPoint._obstable_filter_sort" class="md-nav__link">
     <span class="md-ellipsis">
       _obstable_filter_sort
@@ -989,7 +1007,8 @@
 
 
 <h2 id="jelli.core.global_likelihood_point.GlobalLikelihoodPoint" class="doc doc-heading">
-              <code class="highlight language-python"><span class="n">GlobalLikelihoodPoint</span><span class="p">(</span><span class="n">global_likelihood_instance</span><span class="p">,</span> <span class="n">par_array</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+            <code>GlobalLikelihoodPoint</code>
+
 
 </h2>
 
@@ -1016,7 +1035,7 @@
                 <code>global_likelihood_instance</code>
             </td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="GlobalLikelihood(eft=None, basis=None, custom_basis=None, include_observable_sectors=None, exclude_observable_sectors=None, include_measurements=None, exclude_measurements=None, custom_likelihoods=None) (jelli.core.global_likelihood.GlobalLikelihood)" href="../global_likelihood/#jelli.core.global_likelihood.GlobalLikelihood">GlobalLikelihood</a></code>
+                  <code><a class="autorefs autorefs-internal" title="GlobalLikelihood (jelli.core.global_likelihood.GlobalLikelihood)" href="../global_likelihood/#jelli.core.global_likelihood.GlobalLikelihood">GlobalLikelihood</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -1092,7 +1111,7 @@
           <tr class="doc-section-item">
             <td><code><span title="jelli.core.global_likelihood_point.GlobalLikelihoodPoint.global_likelihood_instance">global_likelihood_instance</span></code></td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="GlobalLikelihood(eft=None, basis=None, custom_basis=None, include_observable_sectors=None, exclude_observable_sectors=None, include_measurements=None, exclude_measurements=None, custom_likelihoods=None) (jelli.core.global_likelihood.GlobalLikelihood)" href="../global_likelihood/#jelli.core.global_likelihood.GlobalLikelihood">GlobalLikelihood</a></code>
+                  <code><a class="autorefs autorefs-internal" title="GlobalLikelihood (jelli.core.global_likelihood.GlobalLikelihood)" href="../global_likelihood/#jelli.core.global_likelihood.GlobalLikelihood">GlobalLikelihood</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -1330,6 +1349,889 @@
     <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">obstable_df</span> <span class="o">=</span> <span class="n">glp</span><span class="o">.</span><span class="n">obstable</span><span class="p">()</span>
 </code></pre></div>
 
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>jelli/core/global_likelihood_point.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">GlobalLikelihoodPoint</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    A class to represent a point in the parameter space of the global likelihood.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    global_likelihood_instance : GlobalLikelihood</span>
+<span class="sd">        An instance of the `GlobalLikelihood` class.</span>
+<span class="sd">    par_array : np.ndarray</span>
+<span class="sd">        An array of parameter values.</span>
+<span class="sd">    scale : float</span>
+<span class="sd">        The scale at which the parameters are evaluated.</span>
+<span class="sd">    par_dep_cov : bool, optional</span>
+<span class="sd">        If `True`, use parameter-dependent covariance matrices. Default is `False`.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    global_likelihood_instance : GlobalLikelihood</span>
+<span class="sd">        The instance of the `GlobalLikelihood` class.</span>
+<span class="sd">    par_array : np.ndarray</span>
+<span class="sd">        The array of parameter values.</span>
+<span class="sd">    scale : float</span>
+<span class="sd">        The scale at which the parameters are evaluated.</span>
+<span class="sd">    par_dep_cov : bool</span>
+<span class="sd">        If `True`, use parameter-dependent covariance matrices.</span>
+<span class="sd">    prediction_no_theory_uncertainty : np.ndarray</span>
+<span class="sd">        The predictions for observables without theory uncertainty.</span>
+<span class="sd">    prediction_correlated : List[np.ndarray]</span>
+<span class="sd">        The predictions for observables with correlated uncertainties.</span>
+<span class="sd">    log_likelihood_no_th_unc_univariate : np.ndarray</span>
+<span class="sd">        The log-likelihood contributions from observables without theory uncertainty with univariate constraints.</span>
+<span class="sd">    log_likelihood_no_th_unc_multivariate : List[np.ndarray]</span>
+<span class="sd">        The log-likelihood contributions from observables without theory uncertainty with multivariate constraints.</span>
+<span class="sd">    log_likelihood_correlated : List[np.ndarray]</span>
+<span class="sd">        The log-likelihood contributions from observables with correlated theoretical uncertainties.</span>
+<span class="sd">    log_likelihood_summed : np.ndarray</span>
+<span class="sd">        The total log-likelihood summed over all observables.</span>
+<span class="sd">    std_sm_exp_correlated_scaled : List[np.ndarray]</span>
+<span class="sd">        The scaled total standard deviations for correlated observables.</span>
+<span class="sd">    _log_likelihood_dict : dict</span>
+<span class="sd">        A dictionary mapping likelihood names to their log-likelihood values.</span>
+<span class="sd">    _chi2_dict : dict</span>
+<span class="sd">        A dictionary mapping likelihood names to their chi-squared values.</span>
+<span class="sd">    _obstable_tree_cache : defaultdict</span>
+<span class="sd">        A cached tree structure for the observable table.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    log_likelihood_dict()</span>
+<span class="sd">        Returns a dictionary mapping likelihood names to their log-likelihood values.</span>
+<span class="sd">    log_likelihood_global()</span>
+<span class="sd">        Returns the global log-likelihood value.</span>
+<span class="sd">    chi2_dict()</span>
+<span class="sd">        Returns a dictionary mapping likelihood names to their chi-squared values.</span>
+<span class="sd">    obstable(min_pull_exp=0, sort_by=&#39;pull exp.&#39;, ascending=None, min_val=None, max_val=None)</span>
+<span class="sd">        Returns a pandas DataFrame representing the observable table with various filtering and sorting options.</span>
+<span class="sd">    _obstable_tree()</span>
+<span class="sd">        Constructs and returns a tree structure for the observable table.</span>
+<span class="sd">    _obstable_filter_sort(info, sortkey=&#39;name&#39;, ascending=True, min_val=None, max_val=None, subset=None, max_rows=None)</span>
+<span class="sd">        Filters and sorts the observable table based on specified criteria.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Initialize a `GlobalLikelihoodPoint` instance:</span>
+
+<span class="sd">    &gt;&gt;&gt; gl = GlobalLikelihood(...)</span>
+<span class="sd">    &gt;&gt;&gt; glp = GlobalLikelihoodPoint(gl, par_array=np.array([0.1, 0.2]), scale=1000)</span>
+
+<span class="sd">    Access the log-likelihood dictionary:</span>
+
+<span class="sd">    &gt;&gt;&gt; log_likelihood_dict = glp.log_likelihood_dict()</span>
+
+<span class="sd">    Access the global log-likelihood value:</span>
+
+<span class="sd">    &gt;&gt;&gt; log_likelihood_global = glp.log_likelihood_global()</span>
+
+<span class="sd">    Access the chi-squared dictionary:</span>
+
+<span class="sd">    &gt;&gt;&gt; chi2_dict = glp.chi2_dict()</span>
+
+<span class="sd">    Get the observable table:</span>
+
+<span class="sd">    &gt;&gt;&gt; obstable_df = glp.obstable()</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">global_likelihood_instance</span><span class="p">,</span> <span class="n">par_array</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Initialize the `GlobalLikelihoodPoint` class.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        global_likelihood_instance : GlobalLikelihood</span>
+<span class="sd">            An instance of the `GlobalLikelihood` class.</span>
+<span class="sd">        par_array : np.ndarray</span>
+<span class="sd">            An array of parameter values.</span>
+<span class="sd">        scale : float</span>
+<span class="sd">            The scale at which the parameters are evaluated.</span>
+<span class="sd">        par_dep_cov : bool, optional</span>
+<span class="sd">            If `True`, use parameter-dependent covariance matrices. Default is `False`.</span>
+
+<span class="sd">        Attributes</span>
+<span class="sd">        ----------</span>
+<span class="sd">        global_likelihood_instance : GlobalLikelihood</span>
+<span class="sd">            The instance of the `GlobalLikelihood` class.</span>
+<span class="sd">        par_array : np.ndarray</span>
+<span class="sd">            The array of parameter values.</span>
+<span class="sd">        scale : float</span>
+<span class="sd">            The scale at which the parameters are evaluated.</span>
+<span class="sd">        par_dep_cov : bool</span>
+<span class="sd">            If `True`, use parameter-dependent covariance matrices.</span>
+<span class="sd">        prediction_no_theory_uncertainty : np.ndarray</span>
+<span class="sd">            The predictions for observables without theory uncertainty.</span>
+<span class="sd">        prediction_correlated : List[np.ndarray]</span>
+<span class="sd">            The predictions for observables with correlated uncertainties.</span>
+<span class="sd">        log_likelihood_no_th_unc_univariate : np.ndarray</span>
+<span class="sd">            The log-likelihood contributions from observables without theory uncertainty with univariate constraints.</span>
+<span class="sd">        log_likelihood_no_th_unc_multivariate : List[np.ndarray]</span>
+<span class="sd">            The log-likelihood contributions from observables without theory uncertainty with multivariate constraints.</span>
+<span class="sd">        log_likelihood_correlated : List[np.ndarray]</span>
+<span class="sd">            The log-likelihood contributions from observables with correlated theoretical uncertainties.</span>
+<span class="sd">        log_likelihood_summed : np.ndarray</span>
+<span class="sd">            The total log-likelihood summed over all observables.</span>
+<span class="sd">        std_sm_exp_correlated_scaled : List[np.ndarray]</span>
+<span class="sd">            The scaled total standard deviations for correlated observables.</span>
+<span class="sd">        _log_likelihood_dict : dict</span>
+<span class="sd">            A dictionary mapping likelihood names to their log-likelihood contributions.</span>
+<span class="sd">        _chi2_dict : dict</span>
+<span class="sd">            A dictionary mapping likelihood names to their chi-squared contributions.</span>
+<span class="sd">        _obstable_tree_cache : defaultdict</span>
+<span class="sd">            A cached tree structure for the observable table.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Initialize a `GlobalLikelihoodPoint` instance:</span>
+
+<span class="sd">        &gt;&gt;&gt; gl = GlobalLikelihood(...)</span>
+<span class="sd">        &gt;&gt;&gt; glp = GlobalLikelihoodPoint(gl, par_array=np.array([0.1, 0.2]), scale=1000)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span> <span class="o">=</span> <span class="n">global_likelihood_instance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">par_array</span> <span class="o">=</span> <span class="n">par_array</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">par_dep_cov</span> <span class="o">=</span> <span class="n">par_dep_cov</span>
+
+        <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">prediction_no_theory_uncertainty</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">prediction_correlated</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood_no_th_unc_univariate</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood_no_th_unc_multivariate</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood_correlated</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood_summed</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">std_sm_exp_correlated_scaled</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">_log_likelihood_point</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">par_array</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">,</span>
+            <span class="n">par_dep_cov</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">par_dep_cov</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log_likelihood_dict</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_chi2_dict</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_obstable_tree_cache</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">log_likelihood_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns a dictionary mapping likelihood names to their log-likelihood values.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            A dictionary where keys are likelihood names and values are their log-likelihood values.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Access the log-likelihood dictionary:</span>
+
+<span class="sd">        &gt;&gt;&gt; log_likelihood_dict = glp.log_likelihood_dict()</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log_likelihood_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">delta_log_likelihood</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood_summed</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">sm_log_likelihood_summed</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_log_likelihood_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                <span class="nb">zip</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">likelihoods</span><span class="p">,</span>
+                    <span class="n">delta_log_likelihood</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log_likelihood_dict</span>
+
+    <span class="k">def</span> <span class="nf">log_likelihood_global</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns the global log-likelihood value.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            The global log-likelihood value.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Access the global log-likelihood value:</span>
+
+<span class="sd">        &gt;&gt;&gt; log_likelihood_global = glp.log_likelihood_global()</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood_dict</span><span class="p">[</span><span class="s1">&#39;global&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">chi2_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns a dictionary mapping likelihood names to their chi-squared values.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            A dictionary where keys are likelihood names and values are their chi-squared values.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Access the chi-squared dictionary:</span>
+
+<span class="sd">        &gt;&gt;&gt; chi2_dict = glp.chi2_dict()</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chi2_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">chi2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood_summed</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_chi2_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                <span class="nb">zip</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">likelihoods</span><span class="p">,</span>
+                    <span class="n">chi2</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_chi2_dict</span>
+
+    <span class="k">def</span> <span class="nf">_obstable_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Constructs and returns a tree structure for the observable table.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        defaultdict</span>
+<span class="sd">            A tree structure containing observable names, constraints, predictions, uncertainties, and pulls.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obstable_tree_cache</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">obstable_tree</span> <span class="o">=</span> <span class="n">tree</span><span class="p">()</span>
+
+            <span class="p">(</span>
+                <span class="n">log_likelihood_no_th_unc_multivariate</span><span class="p">,</span>
+                <span class="n">log_likelihood_no_th_unc_multivariate_no_corr</span><span class="p">,</span>
+                <span class="n">log_likelihood_correlated</span><span class="p">,</span>
+                <span class="n">log_likelihood_correlated_no_corr</span><span class="p">,</span>
+                <span class="n">exp_central_correlated</span><span class="p">,</span>
+                <span class="n">std_th_exp_correlated</span><span class="p">,</span>
+            <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">_obstable</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">prediction_no_theory_uncertainty</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">prediction_correlated</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood_no_th_unc_multivariate</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood_correlated</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">std_sm_exp_correlated_scaled</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="n">pull_sm_no_theory_uncertainty_no_corr</span><span class="p">,</span> <span class="n">pull_exp_no_theory_uncertainty_no_corr</span> <span class="o">=</span> <span class="n">compute_pulls</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood_no_th_unc_univariate</span> <span class="o">+</span> <span class="n">log_likelihood_no_th_unc_multivariate_no_corr</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">sm_log_likelihood_no_theory_uncertainty_no_corr</span>
+            <span class="p">)</span>
+
+            <span class="n">pull_sm_no_theory_uncertainty</span><span class="p">,</span> <span class="n">pull_exp_no_theory_uncertainty</span> <span class="o">=</span> <span class="n">compute_pulls</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">log_likelihood_no_th_unc_univariate</span> <span class="o">+</span> <span class="n">log_likelihood_no_th_unc_multivariate</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">sm_log_likelihood_no_theory_uncertainty</span>
+            <span class="p">)</span>
+
+            <span class="c1"># add no theory uncertainty observables</span>
+            <span class="n">experimental_values_no_theory_uncertainty</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">experimental_values_no_theory_uncertainty</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">obs_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">observables_no_theory_uncertainty</span><span class="p">):</span>
+                <span class="n">obstable_tree</span><span class="p">[</span><span class="n">obs_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">obs_name</span><span class="p">,</span>
+                    <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="n">experimental_values_no_theory_uncertainty</span><span class="p">[</span><span class="n">obs_name</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="s2">&quot;exp. unc.&quot;</span><span class="p">:</span> <span class="n">experimental_values_no_theory_uncertainty</span><span class="p">[</span><span class="n">obs_name</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="s2">&quot;theory&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_no_theory_uncertainty</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                    <span class="s2">&quot;th. unc.&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                    <span class="s2">&quot;pull exp.&quot;</span><span class="p">:</span> <span class="n">pull_exp_no_theory_uncertainty_no_corr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                    <span class="s2">&quot;pull SM&quot;</span><span class="p">:</span> <span class="n">pull_sm_no_theory_uncertainty_no_corr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                    <span class="s2">&quot;pull exp. corr&quot;</span><span class="p">:</span> <span class="n">pull_exp_no_theory_uncertainty</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                    <span class="s2">&quot;pull SM corr&quot;</span><span class="p">:</span> <span class="n">pull_sm_no_theory_uncertainty</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="p">}</span>
+
+            <span class="c1"># add correlated observables</span>
+            <span class="k">for</span> <span class="n">n_obs_sector</span><span class="p">,</span> <span class="n">obs_names</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">observables_correlated</span><span class="p">):</span>
+                <span class="n">prediction_correlated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prediction_correlated</span><span class="p">[</span><span class="n">n_obs_sector</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">pull_sm_correlated_no_corr</span><span class="p">,</span> <span class="n">pull_exp_correlated_no_corr</span> <span class="o">=</span> <span class="n">compute_pulls</span><span class="p">(</span>
+                    <span class="n">log_likelihood_correlated_no_corr</span><span class="p">[</span><span class="n">n_obs_sector</span><span class="p">],</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">sm_log_likelihood_correlated_no_corr</span><span class="p">[</span><span class="n">n_obs_sector</span><span class="p">]</span>
+                <span class="p">)</span>
+                <span class="n">pull_sm_correlated</span><span class="p">,</span> <span class="n">pull_exp_correlated</span> <span class="o">=</span> <span class="n">compute_pulls</span><span class="p">(</span>
+                    <span class="n">log_likelihood_correlated</span><span class="p">[</span><span class="n">n_obs_sector</span><span class="p">],</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">sm_log_likelihood_correlated</span><span class="p">[</span><span class="n">n_obs_sector</span><span class="p">]</span>
+                <span class="p">)</span>
+                <span class="n">experiment</span> <span class="o">=</span> <span class="n">exp_central_correlated</span><span class="p">[</span><span class="n">n_obs_sector</span><span class="p">]</span>
+                <span class="n">std_th_exp</span> <span class="o">=</span> <span class="n">std_th_exp_correlated</span><span class="p">[</span><span class="n">n_obs_sector</span><span class="p">]</span>
+                <span class="n">std_exp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_likelihood_instance</span><span class="o">.</span><span class="n">std_exp</span><span class="p">[</span><span class="n">n_obs_sector</span><span class="p">]</span>
+                <span class="n">std_th</span> <span class="o">=</span> <span class="n">std_th_exp</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">std_exp</span><span class="o">/</span><span class="n">std_th_exp</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">obs_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">obs_names</span><span class="p">):</span>
+                    <span class="n">obstable_tree</span><span class="p">[</span><span class="n">obs_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">obs_name</span><span class="p">,</span>
+                        <span class="s2">&quot;experiment&quot;</span><span class="p">:</span> <span class="n">experiment</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                        <span class="s2">&quot;exp. unc.&quot;</span><span class="p">:</span> <span class="n">std_exp</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                        <span class="s2">&quot;theory&quot;</span><span class="p">:</span> <span class="n">prediction_correlated</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                        <span class="s2">&quot;th. unc.&quot;</span><span class="p">:</span> <span class="n">std_th</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                        <span class="s2">&quot;pull exp.&quot;</span><span class="p">:</span> <span class="n">pull_exp_correlated_no_corr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                        <span class="s2">&quot;pull SM&quot;</span><span class="p">:</span> <span class="n">pull_sm_correlated_no_corr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                        <span class="s2">&quot;pull exp. corr&quot;</span><span class="p">:</span> <span class="n">pull_exp_correlated</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                        <span class="s2">&quot;pull SM corr&quot;</span><span class="p">:</span> <span class="n">pull_sm_correlated</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                    <span class="p">}</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_obstable_tree_cache</span> <span class="o">=</span> <span class="n">obstable_tree</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obstable_tree_cache</span>
+
+    <span class="c1"># TODO: this is mostly copy paste from smelli, we could think if something should be changed</span>
+    <span class="k">def</span> <span class="nf">obstable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_pull_exp</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sort_by</span><span class="o">=</span><span class="s1">&#39;pull exp.&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_val</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns a pandas DataFrame representing the observable table with various filtering and sorting options. The table includes observable names, experimental values, uncertainties, theoretical predictions, and pulls.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        min_pull_exp : float, optional</span>
+<span class="sd">            Minimum absolute value of the experimental pull to include an observable. Default is `0`.</span>
+<span class="sd">        sort_by : str, optional</span>
+<span class="sd">            The column by which to sort the DataFrame. Options are `&#39;name&#39;`, `&#39;exp. unc.&#39;`, `&#39;experiment&#39;`, `&#39;pull SM&#39;`, `&#39;pull exp.&#39;`, `&#39;th. unc.&#39;`, `&#39;theory&#39;`, `&#39;pull exp. corr&#39;`, and `&#39;pull SM corr&#39;`. Default is `&#39;pull exp.&#39;`.</span>
+<span class="sd">        ascending : bool, optional</span>
+<span class="sd">            If `True`, sort in ascending order. If `False`, sort in descending order. If `None`, the default sorting order is used based on the `sort_by` parameter. Default is `None`.</span>
+<span class="sd">        min_val : float, optional</span>
+<span class="sd">            Minimum value for the `sort_by` column to include an observable. Default is `None`.</span>
+<span class="sd">        max_val : float, optional</span>
+<span class="sd">            Maximum value for the `sort_by` column to include an observable. Default is `None`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pd.DataFrame</span>
+<span class="sd">            A pandas DataFrame representing the observable table with the specified filtering and sorting applied.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Get the observable table sorted by experimental pull in descending order:</span>
+
+<span class="sd">        &gt;&gt;&gt; obstable_df = glp.obstable(sort_by=&#39;pull exp.&#39;, ascending=False)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">sort_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;exp. unc.&#39;</span><span class="p">,</span> <span class="s1">&#39;experiment&#39;</span><span class="p">,</span> <span class="s1">&#39;pull SM&#39;</span><span class="p">,</span> <span class="s1">&#39;pull exp.&#39;</span><span class="p">,</span> <span class="s1">&#39;th. unc.&#39;</span><span class="p">,</span> <span class="s1">&#39;theory&#39;</span><span class="p">,</span> <span class="s1">&#39;pull exp. corr&#39;</span><span class="p">,</span> <span class="s1">&#39;pull SM corr&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">sort_by</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sort_keys</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;</span><span class="si">{}</span><span class="s2">&#39; is not an allowed value for sort_by. Allowed values are &quot;</span>
+                <span class="s2">&quot;&#39;</span><span class="si">{}</span><span class="s2">&#39;, and &#39;</span><span class="si">{}</span><span class="s2">&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sort_by</span><span class="p">,</span> <span class="s2">&quot;&#39;, &#39;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sort_keys</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>
+                                        <span class="n">sort_keys</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="p">)</span>
+        <span class="n">subset</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">sort_by</span> <span class="o">==</span> <span class="s1">&#39;pull exp.&#39;</span><span class="p">:</span>
+            <span class="c1"># if sorted by pull exp., use descending order as default</span>
+            <span class="k">if</span> <span class="n">ascending</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="n">min_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">min_val</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">min_pull_exp</span><span class="p">,</span> <span class="n">min_val</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">min_val</span> <span class="o">=</span> <span class="n">min_pull_exp</span>
+        <span class="k">elif</span> <span class="n">min_pull_exp</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">subset</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;pull exp.&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">min_pull_exp</span>
+        <span class="c1"># if sorted not by pull exp., use ascending order as default</span>
+        <span class="k">if</span> <span class="n">ascending</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ascending</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">obstable_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obstable_filter_sort</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_obstable_tree</span><span class="p">(),</span>
+            <span class="n">sortkey</span><span class="o">=</span><span class="n">sort_by</span><span class="p">,</span>
+            <span class="n">ascending</span><span class="o">=</span><span class="n">ascending</span><span class="p">,</span>
+            <span class="n">min_val</span><span class="o">=</span><span class="n">min_val</span><span class="p">,</span>
+            <span class="n">max_val</span><span class="o">=</span><span class="n">max_val</span><span class="p">,</span>
+            <span class="n">subset</span><span class="o">=</span><span class="n">subset</span>
+        <span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">obstable_tree</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">del</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">df</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_obstable_filter_sort</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">sortkey</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">min_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_val</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_rows</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Filters and sorts the observable table based on specified criteria.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        info : dict</span>
+<span class="sd">            A dictionary containing observable information.</span>
+<span class="sd">        sortkey : str, optional</span>
+<span class="sd">            The key by which to sort the observables. Default is `&#39;name&#39;`.</span>
+<span class="sd">        ascending : bool, optional</span>
+<span class="sd">            If `True`, sort in ascending order. If `False`, sort in descending order. Default is `True`.</span>
+<span class="sd">        min_val : float, optional</span>
+<span class="sd">            Minimum value for the `sortkey` to include an observable. Default is `None`.</span>
+<span class="sd">        max_val : float, optional</span>
+<span class="sd">            Maximum value for the `sortkey` to include an observable. Default is `None`.</span>
+<span class="sd">        subset : callable, optional</span>
+<span class="sd">            A function that takes a row and returns `True` if the row should be included. Default is `None`.</span>
+<span class="sd">        max_rows : int, optional</span>
+<span class="sd">            Maximum number of rows to include in the output. If the number of rows exceeds this value, the output is split into multiple tables. Default is `None`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict or list[dict]</span>
+<span class="sd">            A filtered and sorted dictionary of observables, or a list of such dictionaries if the number of rows exceeds `max_rows`.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="c1"># impose min_val and max_val</span>
+        <span class="k">if</span> <span class="n">min_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="n">obs</span><span class="p">:</span><span class="n">row</span> <span class="k">for</span> <span class="n">obs</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="n">sortkey</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">min_val</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">max_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="n">obs</span><span class="p">:</span><span class="n">row</span> <span class="k">for</span> <span class="n">obs</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="n">sortkey</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">max_val</span><span class="p">}</span>
+        <span class="c1"># get only subset:</span>
+        <span class="k">if</span> <span class="n">subset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">info</span> <span class="o">=</span> <span class="p">{</span><span class="n">obs</span><span class="p">:</span><span class="n">row</span> <span class="k">for</span> <span class="n">obs</span><span class="p">,</span><span class="n">row</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">subset</span><span class="p">(</span><span class="n">row</span><span class="p">)}</span>
+        <span class="c1"># sort</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">sortkey</span><span class="p">],</span>
+                                <span class="n">reverse</span><span class="o">=</span><span class="p">(</span><span class="ow">not</span> <span class="n">ascending</span><span class="p">)))</span>
+        <span class="c1"># restrict number of rows per tabular to max_rows</span>
+        <span class="k">if</span> <span class="n">max_rows</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">info</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">max_rows</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">info</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">info_list</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">info</span><span class="p">)</span><span class="o">/</span><span class="n">max_rows</span><span class="p">)):</span>
+                <span class="n">info_n</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">((</span><span class="n">obs</span><span class="p">,</span><span class="n">row</span><span class="p">)</span>
+                                     <span class="k">for</span> <span class="n">i</span><span class="p">,(</span><span class="n">obs</span><span class="p">,</span><span class="n">row</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+                                     <span class="k">if</span> <span class="n">i</span><span class="o">&gt;=</span><span class="n">n</span><span class="o">*</span><span class="n">max_rows</span> <span class="ow">and</span> <span class="n">i</span><span class="o">&lt;</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">max_rows</span><span class="p">)</span>
+                <span class="n">info_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info_n</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">info_list</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="jelli.core.global_likelihood_point.GlobalLikelihoodPoint.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">global_likelihood_instance</span><span class="p">,</span> <span class="n">par_array</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">par_dep_cov</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
         <p>Initialize the <code>GlobalLikelihoodPoint</code> class.</p>
 
 
@@ -1349,7 +2251,7 @@
                 <code>global_likelihood_instance</code>
             </td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="GlobalLikelihood(eft=None, basis=None, custom_basis=None, include_observable_sectors=None, exclude_observable_sectors=None, include_measurements=None, exclude_measurements=None, custom_likelihoods=None) (jelli.core.global_likelihood.GlobalLikelihood)" href="../global_likelihood/#jelli.core.global_likelihood.GlobalLikelihood">GlobalLikelihood</a></code>
+                  <code><a class="autorefs autorefs-internal" title="GlobalLikelihood (jelli.core.global_likelihood.GlobalLikelihood)" href="../global_likelihood/#jelli.core.global_likelihood.GlobalLikelihood">GlobalLikelihood</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -1425,7 +2327,7 @@
           <tr class="doc-section-item">
             <td><code><span title="jelli.core.global_likelihood_point.GlobalLikelihoodPoint.__init__.global_likelihood_instance">global_likelihood_instance</span></code></td>
             <td>
-                  <code><a class="autorefs autorefs-internal" title="GlobalLikelihood(eft=None, basis=None, custom_basis=None, include_observable_sectors=None, exclude_observable_sectors=None, include_measurements=None, exclude_measurements=None, custom_likelihoods=None) (jelli.core.global_likelihood.GlobalLikelihood)" href="../global_likelihood/#jelli.core.global_likelihood.GlobalLikelihood">GlobalLikelihood</a></code>
+                  <code><a class="autorefs autorefs-internal" title="GlobalLikelihood (jelli.core.global_likelihood.GlobalLikelihood)" href="../global_likelihood/#jelli.core.global_likelihood.GlobalLikelihood">GlobalLikelihood</a></code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -1587,15 +2489,9 @@
 </code></pre></div>
 
 
-
-
-
-
-
-
-                  <details class="quote">
-                    <summary>Source code in <code>jelli/core/global_likelihood_point.py</code></summary>
-                    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 91</span>
+            <details class="quote">
+              <summary>Source code in <code>jelli/core/global_likelihood_point.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 91</span>
 <span class="normal"> 92</span>
 <span class="normal"> 93</span>
 <span class="normal"> 94</span>
@@ -1743,20 +2639,10 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">_chi2_dict</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_obstable_tree_cache</span> <span class="o">=</span> <span class="kc">None</span>
 </code></pre></div></td></tr></table></div>
-                  </details>
+            </details>
+    </div>
 
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
+</div>
 
 <div class="doc doc-object doc-function">
 
